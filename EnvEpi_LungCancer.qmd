@@ -1,178 +1,58 @@
 ---
-title: "Genetic markers combined with air pollution exposure in the development of lung cancer in a Northern Israeli cohort of different ethnic origins"
+title: "Spatial Distribution and Molecular Characterization of Lung Cancer in a Northern Israeli Cohort"
+subtitle: "A Hospital-Based Epidemiological Study"
+author:
+  - name: Nik Danilov
+    affiliations:
+      - name: School of Public Health, University of Haifa | Lady Davis Carmel Medical Center
+        city: Haifa
+        country: Israel
+    email: danilov.md@gmail.com
+date: "2025"
+date-format: "YYYY"
 format:
   html:
     toc: true
+    toc-depth: 3
     number-sections: true
+    theme: cosmo
 execute:
   echo: true
   warning: false
   message: false
+engine: knitr
 ---
 
-Introduction
-============
+*Course instructor: Jonathan Dubnov, MD, MPH | Environmental Epidemiology, School of Public Health, University of Haifa*
 
-Lung cancer (LC) remains the leading cause of cancer mortality worldwide and poses a major public health burden. The development of LC is driven by a combination of genetic susceptibility and environmental exposures, particularly air pollution, which is recognized as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC). 
+---
 
-The **relevance** of this topic is multidimensional. Clinically, LC represents a critical challenge in oncology due to its heterogeneous nature and frequent resistance to targeted therapies. Epidemiologically, it highlights the interaction between environmental determinants and host factors in shaping disease risk.
+# Part I. Introduction
 
-Risk factors for LC in Israel align with global patterns but also show local nuances. ***Tobacco smoking*** remains the predominant cause, implicated in an estimated 85% of cases. However, urban and occupational ***air pollution*** also plays a significant role. Haifa and its surrounding bay area are the Israeli most industrialized and heavily polluted region. Several studies have consistently reported elevated cancer risks, including LC, among its local heterogeneous population.
+***Lung cancer (LC)*** remains the leading cause of cancer mortality worldwide, driven by a combination of genetic susceptibility, environmental exposures, and behavioural risk factors — most prominently tobacco smoking.
 
-LC management has become increasingly dependent on molecular characterization, with several biomarkers guiding prognosis and therapy. The key **LC genetic markers** are the follows: 
+This work pursues two complementary aims: 
 
-1) programmed death-ligand 1 (PD-L1); its expression is measured by ***tumor proportion score (TPS)*** - the percentage of viable tumor cells that express PD-L1 on their surface
-2) mesenchymal–epithelial transition proto-oncogene (MET)
-3) epidermal growth factor receptor (EGFR)
-4) B-Raf proto-oncogene (BRAF)
-5) Kirsten rat sarcoma (KRAS)
-6) erythroblastic oncogene B2 (ERBB2) (human epidermal growth factor receptor 2 (HER2))
-7) anaplastic lymphoma kinase (ALK)
-8) c-ros oncogene 1 (ROS1) 
-9) neurotrophic tyrosine receptor kinases (NTRK) genes (NTRK1, NTRK2, and NTRK3)
-10) rearranged during transfection (RET)
-11) mismatch repair (MMR) genes (MLH1, PMS2, MSH2, MSH6); their abnormal function leads to instability of short tandem DNA repeats (***microsatellites***) evaluated by the ***microsatellite instability (MSI)*** status of the tumor
+1) to characterize the spatial distribution of LC cases across the Haifa District and Northern District of Israel and evaluate whether observed geographic clustering is explained by established confounders — particularly smoking prevalence and population demographics
 
-From a toxicological and epidemiological perspective, several **air pollutants** have been most consistently linked with LC incidence and mortality: 
+2) to describe the molecular and histopathological profile of the study cohort and examine how biomarker patterns align with internationally reported data
 
-1) ***NOx*** - nitrogen oxides generally (including NO and NO₂); most epidemiological studies do not separate NO from NO₂, so the evidence is dominated by NO₂; however, NOx may capture additional sources (e.g. industrial emissions) and serve as an upstream precursors to secondary pollutants (ozone, nitrates, etc.)
-2) carbon monoxide (CO)
-3) sulfur dioxide (SO₂) 
-4) ozone (O₃)
-5) particulate matter with the particles diameter ≤ 10 µm (PM₁₀); represents coarse plus fine particles
-6) particulate matter with the particles diameter ≤ 2.5 µm (PM₂.₅) (fine particles) 
+The study draws on a self-compiled, anonymized dataset of 94 LC cases managed at the Lady Davis Carmel Medical Center, Haifa (2024–2025), integrated with ambient air quality monitoring data from the Israeli Ministry of Environmental Protection. Although the dataset's scale precludes definitive conclusions about gene-environment interactions, the work demonstrates an integrative methodological framework — combining spatial epidemiology with clinical-molecular characterization — that may serve as a template for future larger-scale investigations.
 
-The **aim** of this work is to examine the combined influence of genomic alterations and environmental exposures on LC development in Northern Israel:
+Textual and tabular presentations follow the Publication Manual of the American Psychological Association (APA, 7th ed., 2020).
 
-1. Molecular profiling: to characterize the prevalence of key molecular alterations in LC cases, including PD-L1 expression (via immunohistochemistry (IHC)), driver mutations (EGFR, KRAS, BRAF, MET, ALK, ROS1, ERBB2, RET, NTRK1/2/3; via next-generation sequencing (NGS)), and mismatch repair (MMR) genes (MLH1, PMS2, MSH2, MSH6; via polymerase chain reaction (PCR)).
-2. Demographic stratification: to categorize cases by ethnic origin and examine differences in clinical or molecular characteristics across groups.
-3. Geographic mapping: to document the residential distribution of patients within the Israeli northern districts and evaluate spatial tendencies in case occurrence, with further comparing them with spatially and temporally resolved air pollution estimates.
+# Part II. Literature review
 
-Data management
-===============
+## Chapter 2.1. LC burden in Israel
 
-## Data sources
+***LC*** continues to be the leading cause of cancer-related mortality worldwide, accounting for roughly 1.8 million deaths per year — nearly 18% of all cancer deaths (GBD 2021 HAP Collaborators, 2025). The global age-standardized incidence rate (ASIR) stands at 30.5 per 100,000, with men showing significantly higher rates (43.4 per 100,000) compared to women (17.6 per 100,000).
 
-1. **Air quality data** were obtained from the official website of the Israeli Ministry of Environmental Protection: https://air.sviva.gov.il. The most recent report openly available (2023) includes nationwide air concentration maps for major pollutants of established epidemiological relevance.
+In Israel, the ASIR for LC in 2023 was estimated at 22.4 per 100,000. Men exhibited an incidence rate of 31.2 per 100,000, while women showed 13.6 per 100,000. Incidence among men is declining due to reductions in smoking prevalence, whereas incidence among women is rising. LC ranks as the third most common cancer among Israeli men and the fourth among women (George et al., 2025).
 
-2. **Clinical-laboratory data** were obtained from the *anonymized* individual electronic medical records (EMRs) of *94 lung cancer patients* managed at Lady Davis Carmel Medical Center in Haifa in 2024-2025 and whose lung biopsy and surgical material were diagnosed in the Department of Pathology. Twenty-one variables were chosen, covering demographics (age, sex, ethnic group, residential district, smoking history), histopathological diagnosis, and molecular biomarkers (PD-L1 expression, EGFR, KRAS, BRAF, MET, ALK, ROS1, NTRK, RET, ERBB2, MSI, TMB). 
+In Israel, the ASIR for LC in 2023 was estimated at 22.4 per 100,000, lower than the global average but higher than in some developed countries such as Sweden and Finland (George et al., 2025). Men in Israel exhibited an incidence rate of 31.2 per 100,000, while women showed 13.6 per 100,000. The trends in Israel are also gender-specific: incidence among men is declining, largely due to reductions in smoking prevalence, whereas incidence among women is rising, following patterns observed in other Western countries. LC ranks as the third most common cancer among Israeli men and the fourth among women (Israel Ministry of Health Cancer Registry, 2024, cited in George et al., 2025).
 
-## Data setup
+Mortality patterns reflect these incidence trends. Globally, LC mortality rate is around 18 per 100,000, whereas Israel reports a slightly lower rate of approximately 15.6 per 100,000. Despite being below the global average, LC remains one of the leading causes of cancer death in Israel, particularly among individuals over the age of 60. Disability-adjusted life years (DALYs) lost due to LC in Israel are still substantial, underscoring the disease’s heavy societal impact (George et al., 2025).
 
-```{r}
-library(tidyverse)
-library(readxl)
-library(janitor)
-library(skimr)
+Risk factors for LC in Israel align with global patterns but also show local nuances. Tobacco smoking remains the predominant cause, implicated in an estimated 85% of cases. However, urban air pollution—especially in densely populated areas like Tel Aviv and Haifa—and occupational exposures such as asbestos also play significant roles. Furthermore, disparities exist across population groups: Arab Israeli populations face disproportionately higher incidence and mortality rates, often due to delayed diagnoses and reduced access to screening services (GBD 2021 HAP Collaborators, 2025).
 
-paths <- list(
-  raw = "data",
-  figures = "output",
-  tables = "output"
-)
-```
-
-```{r}
-df_raw <- read_excel(file.path(paths$raw, "CarmelMC_LungCancer.xlsx"))|>
-  clean_names()
-
-glimpse(df_raw)
-```
-
-Data dictionary
-===============
-
-The clinical-laboratory variables are described according to a ***syntactical approach***, distinguishing only between numeric and character. Under this approach, the functional role of a variable (continuous, discrete count, binary flag, or categorical) is determined by its analytical use rather than by its storage type.
-
-- id (numeric, nominal; identifier, not for analysis): a clinical case's anonymized number
-- sex (numeric, binary): a patient's biological sex: 0 = male; 1 = female
-- age (numeric, continuous): a patient's age (years) at the date of the lung biopsy or surgery
-- ethnic (numeric, nominal): a patient's presumed ethnic origin (subjective approximation based on the patient's name/surname evaluation and locality; not officially confirmed): 0 = Jewish; 1 = Arab, not otherwise specified (NOS); 2 = Druze; 3 = Bedouin   
-- locality (character, nominal): a patient's place of residence (city, town, village, etc.)
-- latitude (numeric, continuous): a locality’s geographic latitude (decimal degrees)
-- longitude (numeric, continuous): a locality’s geographic longitude (decimal degrees)
-- loc_popul (numeric, continuous): a locality’s population size according to the Israeli Central Bureau of Statistics (2023) (number of peoples)
-- district (numeric, binary): Israeli administrative district to which a patient's locality belongs: 0 = Haifa District; 1 = Northern District
-- smoking (numeric, binary): a patient's smoking status: 0 = non-smoker (never smoked or quit > 10 years before the lung biopsy/surgery date); 1 = smoker (current smoker or quit ≤ 10 years before the lung biopsy/surgery date)
-- bx_date (numeric, ordinal): date of the lung biopsy or surgery performed
-- dx (numeric, nominal): pathohistological diagnosis of lung cancer: 0 = adenocarcinoma (ACA), NOS; 1 = mucinous ACA (MucACA); 2 = squamous cell carcinoma (SCC); 3 = neuroendocrine tumour (NET) (low-grade (typical carcinoid) or intermediate-grade (atypical carcinoid) neuroendocrine neoplasm); 4 = neuroendocrine carcinoma (NEC) (high-grade neuroendocrine neoplasm (small cell lung cancer or large cell neuroendocrine carcinoma))  
-pdl1 (numeric, binary) - PD-L1 expression measured by TPS:
-0 = weak (TPS = 1-49%) 
-1 = strong (TPS ≥ 50%)
-met (numeric, binary) - MET gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-egfr (numeric, binary) - EGFR gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-braf (numeric, binary) - BRAF gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-kras (numeric, binary) - KRAS gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-erbb2 (numeric, binary) - ERBB2 (HER2) gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-alk (numeric, binary) - ALK gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-ros1 (numeric, binary) - ROS1 gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-ntrk (numeric, binary) - NTRK1/NTRK2/NTRK3 genes mutation status: 
-0 = no mutation 
-1 = mutation detected
-ret (numeric, binary) - RET gene mutation status: 
-0 = no mutation 
-1 = mutation detected
-msi (numeric, ordinal) - microsatellite instability (MSI) status of the tumour - instability of short tandem DNA repeats (microsatellites) of tumour cells, which results from abnormal function of one or more mismatch repair (MMR) genes (MLH1, PMS2, MSH2, and MSH6): 
-0 = microsatellite stable (MSS) status 
-1 = low microsatellite instability (MSI-L) 
-2 = high microsatellite instability (MSI-H)
-tmb (numeric, continuous) - tumour mutational burden (TMB) - number of non-inherited mutations per million bases (megabase, Mb) of the investigated genomic sequence. TMB is strongly predictive of a patient's response to immune checkpoint inhibitor therapy, of overall as well as disease-specific survival - independently of cancer type, stage or grade.
-
-
-
-
-
-
-
-
-This step makes all coded variables human-readable and ensures models/tables treat them as categorical rather than numeric.
-
-```{r}
-library(dplyr)
-library(forcats)
-
-df <- df_raw |>
-  mutate(
-    sex = factor(sex, levels = c(0, 1), labels = c("male", "female")),
-    smoking = factor(smoking, levels = c(0, 1), labels = c("never smoked or quit >10y", "current smoker or quit ≤10y")),
-    district = factor(district, levels = c(0, 1), labels = c("Haifa District", "Northern District")),
-    pdl1     = factor(pdl1, levels = c(0, 1), labels = c("weak (TPS 1–49%)", "strong (TPS ≥50%)")),
-
-    met  = factor(met,  levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    egfr = factor(egfr, levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    braf = factor(braf, levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    kras = factor(kras, levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    erbb2= factor(erbb2,levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    alk  = factor(alk,  levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    ros1 = factor(ros1, levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    ntrk = factor(ntrk, levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-    ret  = factor(ret,  levels = c(0, 1), labels = c("no mutation", "mutation detected")),
-
-    msi = factor(msi, levels = c(0, 1, 2),
-                 labels = c("MSS", "MSI-L", "MSI-H"),
-                 ordered = TRUE),
-
-    ethnic = factor(ethnic, levels = c(0, 1, 2, 3),
-                    labels = c("Jewish", "Arab NOS", "Arab (Druze)", "Arab (Bedouin)")),
-
-    dx = factor(dx, levels = c(0, 1, 2, 3, 4),
-                labels = c("ACA, NOS", "mucinous ACA (MucACA)", "SCC",
-                           "NET (low/intermediate-grade)", "NEC"))
-  )
-
-glimpse(df)
-```
+Looking ahead, projections suggest a modest increase in LC burden among Israeli women, linked to historical smoking behaviours and delayed engagement with preventive health services. Globally, although incidence in men is decreasing, the overall burden is shifting toward low- and middle-income countries. Israel as a high-income but geographically diverse nation with urban air quality challenges may experience similar shifts if environmental risks are not mitigated (George et al., 2025).
