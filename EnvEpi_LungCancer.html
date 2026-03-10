@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nik Danilov">
+<meta name="dcterms.date" content="2025-01-01">
+
+<title>Spatial Distribution and Molecular Characterization of Lung Cancer in a Northern Israeli Cohort</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="EnvEpi_LungCancer_files/libs/clipboard/clipboard.min.js"></script>
+<script src="EnvEpi_LungCancer_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="EnvEpi_LungCancer_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="EnvEpi_LungCancer_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="EnvEpi_LungCancer_files/libs/quarto-html/popper.min.js"></script>
+<script src="EnvEpi_LungCancer_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="EnvEpi_LungCancer_files/libs/quarto-html/anchor.min.js"></script>
+<link href="EnvEpi_LungCancer_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="EnvEpi_LungCancer_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="EnvEpi_LungCancer_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="EnvEpi_LungCancer_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="EnvEpi_LungCancer_files/libs/bootstrap/bootstrap-4d7f0bce1131f3e5f9547cd857cfbfc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="EnvEpi_LungCancer_files/libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="EnvEpi_LungCancer_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+<link href="EnvEpi_LungCancer_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="EnvEpi_LungCancer_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="EnvEpi_LungCancer_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="EnvEpi_LungCancer_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+
+<script src="EnvEpi_LungCancer_files/libs/leaflet-1.3.1/leaflet.js"></script>
+
+<link href="EnvEpi_LungCancer_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+
+<script src="EnvEpi_LungCancer_files/libs/proj4-2.6.2/proj4.min.js"></script>
+
+<script src="EnvEpi_LungCancer_files/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+
+<link href="EnvEpi_LungCancer_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+
+<script src="EnvEpi_LungCancer_files/libs/leaflet-binding-2.2.3/leaflet.js"></script>
+
+<script src="EnvEpi_LungCancer_files/libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+
+<script src="EnvEpi_LungCancer_files/libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">2</span> Methods</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">3</span> Data analysis</a>
+  <ul class="collapse">
+  <li><a href="#cohort-demographics" id="toc-cohort-demographics" class="nav-link" data-scroll-target="#cohort-demographics"><span class="header-section-number">3.1</span> Cohort demographics</a></li>
+  <li><a href="#histological-subtypes-biomarker-distribution-and-tmb" id="toc-histological-subtypes-biomarker-distribution-and-tmb" class="nav-link" data-scroll-target="#histological-subtypes-biomarker-distribution-and-tmb"><span class="header-section-number">3.2</span> Histological subtypes, biomarker distribution, and TMB</a></li>
+  <li><a href="#geographic-distribution-of-lc-cases" id="toc-geographic-distribution-of-lc-cases" class="nav-link" data-scroll-target="#geographic-distribution-of-lc-cases"><span class="header-section-number">3.3</span> Geographic distribution of LC cases</a></li>
+  <li><a href="#spatial-analysis" id="toc-spatial-analysis" class="nav-link" data-scroll-target="#spatial-analysis"><span class="header-section-number">3.4</span> Spatial analysis</a>
+  <ul class="collapse">
+  <li><a href="#kernel-density-estimation-kde" id="toc-kernel-density-estimation-kde" class="nav-link" data-scroll-target="#kernel-density-estimation-kde"><span class="header-section-number">3.4.1</span> Kernel density estimation (KDE)</a></li>
+  <li><a href="#global-spatial-autocorrelation" id="toc-global-spatial-autocorrelation" class="nav-link" data-scroll-target="#global-spatial-autocorrelation"><span class="header-section-number">3.4.2</span> Global spatial autocorrelation</a></li>
+  <li><a href="#local-indicators-of-spatial-association" id="toc-local-indicators-of-spatial-association" class="nav-link" data-scroll-target="#local-indicators-of-spatial-association"><span class="header-section-number">3.4.3</span> Local indicators of spatial association</a></li>
+  <li><a href="#smoking-as-a-confounder" id="toc-smoking-as-a-confounder" class="nav-link" data-scroll-target="#smoking-as-a-confounder"><span class="header-section-number">3.4.4</span> Smoking as a confounder</a></li>
+  <li><a href="#ethnicity-as-a-potential-determinant" id="toc-ethnicity-as-a-potential-determinant" class="nav-link" data-scroll-target="#ethnicity-as-a-potential-determinant"><span class="header-section-number">3.4.5</span> Ethnicity as a potential determinant</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a>
+  <ul class="collapse">
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">4.1</span> Limitations</a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">5</span> Conclusions</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Spatial Distribution and Molecular Characterization of Lung Cancer in a Northern Israeli Cohort</h1>
+<p class="subtitle lead">A Hospital-Based Epidemiological Study</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Nik Danilov <a href="mailto:danilov.md@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            School of Public Health, University of Haifa | Lady Davis Carmel Medical Center
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Course instructor: Jonathan Dubnov, MD, MPH | Environmental Epidemiology, School of Public Health, University of Haifa</em></p>
+</div>
+</div>
+</div>
+<hr>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>This report presents a hospital-based epidemiological analysis of lung cancer (LC) cases managed at the Lady Davis Carmel Medical Center, Haifa, Israel (2024–2025). The dataset was compiled through systematic review of anonymized electronic medical records extracted from the Ofek intra/interhospital medical informatics platform, covering 94 LC cases with complete histopathological and molecular characterization.</p>
+<p>Two complementary objectives guided the analysis:</p>
+<ol type="1">
+<li><p>to characterize the spatial distribution of LC cases across the Haifa District and Northern District and evaluate whether observed geographic patterns are explained by established confounders — particularly smoking prevalence and population size</p></li>
+<li><p>to describe the molecular and histopathological profile of the cohort and examine how biomarker distributions align with internationally reported data</p></li>
+</ol>
+</section>
+<section id="methods" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Methods</h1>
+<p>The dataset comprised 94 anonymized LC cases extracted from the Ofek platform. After loading, variables were recoded as factors with descriptive labels to facilitate analysis and visualization. All analyses were performed in R programming language. The report was authored in Quarto to ensure full reproducibility.</p>
+<p><em><a href="#tbl-dictionary" class="quarto-xref">Table&nbsp;1</a></em> summarizes all variables included in the dataset. The variables are described according to a syntactical approach, primarily distinguishing only between numeric and character. Under this approach, the functional role of a variable (continuous, discrete count, binary flag, or categorical) is determined by its analytical use rather than by its storage type.</p>
+<div class="cell">
+<div id="tbl-dictionary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dictionary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Data dictionary: variables included in the dataset.
+</figcaption>
+<div aria-describedby="tbl-dictionary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover do-not-create-environment cell caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Type</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Description / Coding</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">id</td>
+<td style="text-align: left; width: 8em;">numeric, nominal</td>
+<td style="text-align: left; width: 40em;">Anonymized case identifier (not used in analysis)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">sex</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">Biological sex: 0 = Male, 1 = Female</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">age</td>
+<td style="text-align: left; width: 8em;">numeric, continuous</td>
+<td style="text-align: left; width: 40em;">Age at the lung biopsy/surgery date (years)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">ethnic</td>
+<td style="text-align: left; width: 8em;">numeric, nominal</td>
+<td style="text-align: left; width: 40em;">Ethnic origin (presumed on the patient's name/surname and locality): 0 = Jewish, 1 = Arab, not otherwise specified (NOS), 2 = Arab, Druze, 3 = Arab, Bedouin</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">locality</td>
+<td style="text-align: left; width: 8em;">character, nominal</td>
+<td style="text-align: left; width: 40em;">Residential locality (city, town, or village)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">latitude</td>
+<td style="text-align: left; width: 8em;">numeric, continuous</td>
+<td style="text-align: left; width: 40em;">Locality geographic latitude (decimal degrees)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">longitude</td>
+<td style="text-align: left; width: 8em;">numeric, continuous</td>
+<td style="text-align: left; width: 40em;">Locality geographic longitude (decimal degrees)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">loc_popul</td>
+<td style="text-align: left; width: 8em;">numeric, continuous</td>
+<td style="text-align: left; width: 40em;">Locality population size (Israeli Central Bureau of Statistics, 2023)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">district</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">Israeli administrative district: 0 = Haifa District, 1 = Northern District</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">smoking</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">Smoking status: 0 = Non-smoker (never smoked or quit &gt; 10 years before the lung biopsy/surgery date), 1 = Smoker (current smoker or quit ≤ 10 years before the lung biopsy/surgery date)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">bx_date</td>
+<td style="text-align: left; width: 8em;">numeric, continuous</td>
+<td style="text-align: left; width: 40em;">The lung biopsy/surgery date</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">dx</td>
+<td style="text-align: left; width: 8em;">numeric, nominal</td>
+<td style="text-align: left; width: 40em;">Histological diagnosis, the LC subtype: 0 = adenocarcinoma (ACA), NOS, 1 = Mucinous ACA, 2 = Squamous cell carcinoma (SCC), 3 = neuroendocrine tumor (NET): low-grade (typical carcinoid) or intermediate-grade (atypical carcinoid) neuroendocrine neoplasm, 4 = neuroendocrine carcinoma (NEC): high-grade neuroendocrine neoplasm (small cell or large cell carcinoma)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">pdl1</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">PD-L1 expression measured by tumor proportion score (TPS) - the percentage of viable tumor cells expressing PD-L1 on their surface: 0 = Weak (TPS 1–49%), 1 = Strong (TPS ≥ 50%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">met</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">MET gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">egfr</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">EGFR gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">braf</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">BRAF gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">kras</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">KRAS gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">erbb2</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">ERBB2 (HER2) gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">alk</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">ALK gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">ros1</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">ROS1 gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">ntrk</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">NTRK1/NTRK2/NTRK3 gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">ret</td>
+<td style="text-align: left; width: 8em;">numeric, binary</td>
+<td style="text-align: left; width: 40em;">RET gene mutation status: 0 = no mutation, 1 = mutation detected</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 8em; font-weight: bold;">msi</td>
+<td style="text-align: left; width: 8em;">numeric, ordinal</td>
+<td style="text-align: left; width: 40em;">Microsatellite instability (MSI) status of the tumor - instability of short tandem DNA repeats (microsatellites) of the tumor cells as a result of abnormal function of ≥ 1 mismatch repair genes (MLH1, PMS2, MSH2, and MSH6): 0 = microsatellite stable (MSS), 1 = low microsatellite instability (MSI-L), 2 = high microsatellite instability (MSI-H)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 8em; font-weight: bold;">tmb</td>
+<td style="text-align: left; width: 8em;">numeric, continuous</td>
+<td style="text-align: left; width: 40em;">Tumor mutational burden (TMB) - number of non-inherited mutations per million tumor DNA bases</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-analysis" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Data analysis</h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 94
+Columns: 24
+$ id        &lt;dbl&gt; 414163, 414266, 414271, 414347, 414680, 414682, 414703, 4147…
+$ sex       &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, …
+$ age       &lt;dbl&gt; 77, 63, 72, 71, 84, 73, 64, 63, 67, 68, 73, 83, 79, 67, 58, …
+$ bx_date   &lt;dttm&gt; 2024-09-05, 2024-09-02, 2024-09-18, 2024-09-23, 2024-09-19,…
+$ ethnic    &lt;dbl&gt; 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, …
+$ locality  &lt;chr&gt; "Haifa", "Acre", "Haifa", "Yarka", "Kiryat Bialik", "Elkosh"…
+$ latitude  &lt;dbl&gt; 32.81917, 32.92611, 32.81917, 32.93333, 32.83306, 33.03323, …
+$ longitude &lt;dbl&gt; 34.99917, 35.08389, 34.99917, 35.18333, 35.06639, 35.32273, …
+$ loc_popul &lt;dbl&gt; 298312, 53422, 298312, 16543, 46417, 267, 298312, 31896, 534…
+$ district  &lt;dbl&gt; 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, …
+$ smoking   &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, …
+$ dx        &lt;dbl&gt; 2, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 2, …
+$ pdl1      &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, …
+$ met       &lt;dbl&gt; 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ egfr      &lt;dbl&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ braf      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ kras      &lt;dbl&gt; 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, …
+$ erbb2     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ alk       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ ros1      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ ntrk      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ ret       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ msi       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ tmb       &lt;dbl&gt; 2.84, 17.97, 12.32, 0.95, 2.84, 12.33, 9.71, 14.20, 6.68, 4.…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 94
+Columns: 24
+$ id        &lt;dbl&gt; 414163, 414266, 414271, 414347, 414680, 414682, 414703, 4147…
+$ sex       &lt;fct&gt; Female, Female, Male, Female, Female, Male, Female, Female, …
+$ age       &lt;dbl&gt; 77, 63, 72, 71, 84, 73, 64, 63, 67, 68, 73, 83, 79, 67, 58, …
+$ bx_date   &lt;dttm&gt; 2024-09-05, 2024-09-02, 2024-09-18, 2024-09-23, 2024-09-19,…
+$ ethnic    &lt;fct&gt; Jewish, Arab, Jewish, Druze, Jewish, Jewish, Jewish, Jewish,…
+$ locality  &lt;chr&gt; "Haifa", "Acre", "Haifa", "Yarka", "Kiryat Bialik", "Elkosh"…
+$ latitude  &lt;dbl&gt; 32.81917, 32.92611, 32.81917, 32.93333, 32.83306, 33.03323, …
+$ longitude &lt;dbl&gt; 34.99917, 35.08389, 34.99917, 35.18333, 35.06639, 35.32273, …
+$ loc_popul &lt;dbl&gt; 298312, 53422, 298312, 16543, 46417, 267, 298312, 31896, 534…
+$ district  &lt;fct&gt; Haifa, Northern, Haifa, Northern, Haifa, Northern, Haifa, Ha…
+$ smoking   &lt;fct&gt; Non-smoker, Smoker, Non-smoker, Non-smoker, Non-smoker, Non-…
+$ dx        &lt;fct&gt; SCC, SCC, SCC, ACA, ACA, ACA, ACA, SCC, ACA, ACA, ACA, ACA, …
+$ pdl1      &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, …
+$ met       &lt;dbl&gt; 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ egfr      &lt;dbl&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ braf      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ kras      &lt;dbl&gt; 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, …
+$ erbb2     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ alk       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ ros1      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ ntrk      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ ret       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ msi       &lt;fct&gt; MSS, MSS, MSS, MSS, MSS, MSS, MSS, MSS, MSS, MSS, MSS, MSS, …
+$ tmb       &lt;dbl&gt; 2.84, 17.97, 12.32, 0.95, 2.84, 12.33, 9.71, 14.20, 6.68, 4.…</code></pre>
+</div>
+</div>
+<section id="cohort-demographics" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="cohort-demographics"><span class="header-section-number">3.1</span> Cohort demographics</h2>
+<p>The study cohort comprised 94 LC patients with a median age of 72 years (range: 42–91). The sex distribution was male-predominant (55.3% males, 44.7% females). Smoking status was nearly balanced: 51.1% non-smokers and 48.9% smokers. Geographically, 39.4% of patients resided in the Haifa District and 60.6% in the Northern District. The ethnic composition was predominantly Jewish (68.1%), followed by Arab (25.5%), Druze (5.3%), and Bedouin (1.1%). Full demographic characteristics are presented in <em><a href="#tbl-demographics" class="quarto-xref">Table&nbsp;2</a></em> and <em><a href="#fig-demographics" class="quarto-xref">Figure&nbsp;1</a></em>.</p>
+<div class="cell">
+<div id="tbl-demographics" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-demographics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Demographic characteristics of the study cohort
+</figcaption>
+<div aria-describedby="tbl-demographics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-bordered do-not-create-environment cell caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Subgroup</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">N</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Total patients</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">94</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age, years: median (range)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">72 (42–91)</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sex</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: center;">42</td>
+<td style="text-align: center;">44.7%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: center;">52</td>
+<td style="text-align: center;">55.3%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Smoking</td>
+<td style="text-align: left;">Non-smoker</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">51.1%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Smoker</td>
+<td style="text-align: center;">46</td>
+<td style="text-align: center;">48.9%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">District</td>
+<td style="text-align: left;">Haifa</td>
+<td style="text-align: center;">37</td>
+<td style="text-align: center;">39.4%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Northern</td>
+<td style="text-align: center;">57</td>
+<td style="text-align: center;">60.6%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ethnicity</td>
+<td style="text-align: left;">Jewish</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">68.1%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Arab</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">25.5%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Druze</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5.3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Bedouin</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.1%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Histology</td>
+<td style="text-align: left;">ACA</td>
+<td style="text-align: center;">63</td>
+<td style="text-align: center;">67%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SCC</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">26.6%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">MucACA</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4.3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NEC</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2.1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-demographics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-demographics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="EnvEpi_LungCancer_files/figure-html/fig-demographics-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-demographics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Sex, smoking status, district of residence, and ethnic distribution of the study cohort
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="histological-subtypes-biomarker-distribution-and-tmb" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="histological-subtypes-biomarker-distribution-and-tmb"><span class="header-section-number">3.2</span> Histological subtypes, biomarker distribution, and TMB</h2>
+<p>ACA was the predominant histological subtype, accounting for 67.0% of cases, followed by SCC (26.6%), MucACA (4.3%), and NEC (2.1%). No carcinoid tumors (NETs) were identified in this cohort.</p>
+<p>Biomarker positivity was concentrated in ACA: EGFR, BRAF, and ROS1 alterations occurred exclusively in ACAs, while KRAS and PD-L1 positivity were also predominantly found in this subtype. SCC cases showed lower rates of PD-L1 (25.0%) and KRAS (8.7%) positivity.</p>
+<p>Mean TMB differed across histological subtypes, ranging from 6.7 mutations/Mb in ACA to 16.1 mutations/Mb in NEC — consistent with the known hypermutated phenotype of the latter.</p>
+<p>Biomarker distribution and mean TMB by histological subtype are shown in <em><a href="#fig-biomarkers" class="quarto-xref">Figure&nbsp;2</a></em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-biomarkers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-biomarkers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="EnvEpi_LungCancer_files/figure-html/fig-biomarkers-1.png" class="img-fluid figure-img" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biomarkers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Histological diagnoses with biomarker distribution and mean tumor mutational burden
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="geographic-distribution-of-lc-cases" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="geographic-distribution-of-lc-cases"><span class="header-section-number">3.3</span> Geographic distribution of LC cases</h2>
+<p>Cases were distributed across more than 40 localities within the Haifa District and Northern District. The largest concentration resided in the city of Haifa (18.1% of the cohort), followed by Acre (6.4%), Kiryat Ata (6.4%), and Nazareth (4.3%). The remaining cases were dispersed across smaller towns and villages, each contributing ≤3.2% of the total (<em><a href="#fig-locality-bar" class="quarto-xref">Figure&nbsp;3</a></em>).</p>
+<p>Histopathological composition varied between localities. Haifa cases were predominantly ACA (64.7%) with a substantial SCC fraction (35.3%). Acre cases split evenly between ACA and SCC, while Nazareth showed a more mixed profile including ACA, SCC, and NEC.</p>
+<p>The bubble map (<em><a href="#fig-bubble-map" class="quarto-xref">Figure&nbsp;4</a></em>) provides a geographic overview of absolute case counts. The city of Haifa emerges as the dominant cluster, with additional concentrations along the coastal plain (Acre, Nahariyya, Kiryat Ata) and in inland centers (Nazareth, Nof HaGalil, Afula). However, absolute case counts reflect both underlying disease risk and population size — larger cities generate more cases simply because more people live there. Population adjustment, applied in the subsequent spatial analyses, is therefore essential before interpreting geographic patterns as evidence of differential risk.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-locality-bar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-locality-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="EnvEpi_LungCancer_files/figure-html/fig-locality-bar-1.png" class="img-fluid figure-img" width="864">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-locality-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Geographic distribution of LC patients by locality of residence. ‘Other’ bars represent localities with a single case each, grouped by histological subtype.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div id="fig-bubble-map" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bubble-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-f5f64bb370be5266cf4d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f5f64bb370be5266cf4d">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[32.9575,32.926111111111,32.607777777778,32.719722222222,32.496111111111,32.965278,32.693055555556,32.862411111111,32.936388888889,32.656197222222,32.902597222222,33.033227777778,33.049444444444,32.556397222222,32.45,32.8191666666667,32.6825,32.933372222222,33.020897222222,32.816666666667,32.9,32.9925,32.8,32.833055555556,32.836944444444,33.2075,32.833055555556,32.963827777778,32.963055555556,32.678611111111,33.003611111111,32.931944444444,32.702102777778,32.7711111111111,32.716666666667,32.93165,32.866666666667,32.888888888889,32.7219444444444,33.165397222222,32.805555555556,32.851147222222,32.789722222222,32.766666666667,32.965977777778,32.776936111111,32.686944444444,32.933333333333,32.836944444444],[35.172777777778,35.083888888889,35.289722222222,35.144166666667,35.498888888889,35.3794,35.049444444444,35.371169444444,35.271944444444,35.417097222222,35.096297222222,35.322727777778,35.305833333333,35.076997222222,34.916666666667,34.9991666666667,35.324444444444,35.141313888889,35.149,35.266666666667,35.283333333333,35.690555555556,35.1,35.066388888889,35.0775,35.569722222222,35.066388888889,35.302308333333,35.0975,35.244444444444,35.0925,35.3175,35.303333,35.0394444444444,35.333333333333,35.319586111111,35.3,35.236944444444,35.1116666666667,35.660697222222,35.169444444444,35.207108333333,35.524722222222,34.966666666667,35.593205555556,35.375675,35.275277777778,35.183333333333,35.273611111111],[4,9.797958971132712,5.656854249492381,4,4,4,4,4,4,4,4,4,4,4,4,16.49242250247064,4,4,4,4,5.656854249492381,4,9.797958971132712,6.928203230275509,5.656854249492381,5.656854249492381,5.656854249492381,4,4,5.656854249492381,6.928203230275509,4,8,5.656854249492381,6.928203230275509,4,5.656854249492381,4,4,4,4,4,5.656854249492381,5.656854249492381,4,4,4,4,4],null,null,{"interactive":true,"className":"","stroke":true,"color":"steelblue","weight":1,"opacity":0.5,"fill":true,"fillColor":"steelblue","fillOpacity":0.6},null,null,["<b>Abu Snan<\/b><br>Cases: 1","<b>Acre<\/b><br>Cases: 6","<b>Afula<\/b><br>Cases: 2","<b>Alonim<\/b><br>Cases: 1","<b>Beit She'an<\/b><br>Cases: 1","<b>Beitegen<\/b><br>Cases: 1","<b>Daliyat al-Karmel<\/b><br>Cases: 1","<b>Deir Hanna<\/b><br>Cases: 1","<b>Deir al-Asad<\/b><br>Cases: 1","<b>Ein Dor<\/b><br>Cases: 1","<b>Ein HaMifratz<\/b><br>Cases: 1","<b>Elkosh<\/b><br>Cases: 1","<b>Fassuta<\/b><br>Cases: 1","<b>Gal'ed<\/b><br>Cases: 1","<b>Hadera<\/b><br>Cases: 1","<b>Haifa<\/b><br>Cases: 17","<b>Iksal<\/b><br>Cases: 1","<b>Jadeidi-Makr<\/b><br>Cases: 1","<b>Kabri<\/b><br>Cases: 1","<b>Kafr Manda<\/b><br>Cases: 1","<b>Karmiel<\/b><br>Cases: 2","<b>Katzrin<\/b><br>Cases: 1","<b>Kiryat Ata<\/b><br>Cases: 6","<b>Kiryat Bialik<\/b><br>Cases: 3","<b>Kiryat Motzkin<\/b><br>Cases: 2","<b>Kiryat Shmona<\/b><br>Cases: 2","<b>Kiryat Yam<\/b><br>Cases: 2","<b>Kisra-Sumei<\/b><br>Cases: 1","<b>Lohamei HaGeta'ot<\/b><br>Cases: 1","<b>Migdal HaEmek<\/b><br>Cases: 2","<b>Nahariya<\/b><br>Cases: 3","<b>Nahf<\/b><br>Cases: 1","<b>Nazareth<\/b><br>Cases: 4","<b>Nesher<\/b><br>Cases: 2","<b>Nof HaGalil<\/b><br>Cases: 3","<b>Sajur<\/b><br>Cases: 1","<b>Sakhnin<\/b><br>Cases: 2","<b>Sha'ab<\/b><br>Cases: 1","<b>Sha'ar HaAmakim<\/b><br>Cases: 1","<b>Shamir<\/b><br>Cases: 1","<b>Shefa-Amr<\/b><br>Cases: 1","<b>Tamra<\/b><br>Cases: 1","<b>Tiberias<\/b><br>Cases: 2","<b>Tirat Carmel<\/b><br>Cases: 2","<b>Tuba-Zangariyye<\/b><br>Cases: 1","<b>Tur'an<\/b><br>Cases: 1","<b>Yafa an-Naseriyye<\/b><br>Cases: 1","<b>Yarka<\/b><br>Cases: 1","<b>Yodfat<\/b><br>Cases: 1"],null,["Abu Snan","Acre","Afula","Alonim","Beit She'an","Beitegen","Daliyat al-Karmel","Deir Hanna","Deir al-Asad","Ein Dor","Ein HaMifratz","Elkosh","Fassuta","Gal'ed","Hadera","Haifa","Iksal","Jadeidi-Makr","Kabri","Kafr Manda","Karmiel","Katzrin","Kiryat Ata","Kiryat Bialik","Kiryat Motzkin","Kiryat Shmona","Kiryat Yam","Kisra-Sumei","Lohamei HaGeta'ot","Migdal HaEmek","Nahariya","Nahf","Nazareth","Nesher","Nof HaGalil","Sajur","Sakhnin","Sha'ab","Sha'ar HaAmakim","Shamir","Shefa-Amr","Tamra","Tiberias","Tirat Carmel","Tuba-Zangariyye","Tur'an","Yafa an-Naseriyye","Yarka","Yodfat"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["steelblue"],"labels":["LC cases"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"unknown","title":"Cases (n)","extra":null,"layerId":null,"className":"info legend","group":null}]}],"setView":[[32.8,35.1],8,[]],"limits":{"lat":[32.45,33.2075],"lng":[34.916666666667,35.690555555556]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bubble-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Interactive bubble map of LC cases across Northern Israel by locality of residence. Bubble size corresponds to number of cases. Click to interact.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="spatial-analysis" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="spatial-analysis"><span class="header-section-number">3.4</span> Spatial analysis</h2>
+<section id="kernel-density-estimation-kde" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="kernel-density-estimation-kde"><span class="header-section-number">3.4.1</span> Kernel density estimation (KDE)</h3>
+<p>To explore geographic heterogeneity beyond absolute counts, KDE was applied in two forms: unadjusted (weighted by absolute case counts) and population-adjusted (weighted by cases per 100,000 locality population). The two maps are shown in <em><strong>?@fig-kde-maps</strong></em>.</p>
+<p>The unadjusted map confirms Haifa’s dominance — a pattern driven largely by its large population rather than elevated relative risk. After population adjustment, Haifa’s prominence diminishes substantially. Instead, small inland localities emerge with elevated relative intensity, most notably Elkosh (1 case in a population of 267, yielding 374.5 per 100,000). The adjusted map thus provides a more valid basis for assessing spatial risk gradients than raw case counts alone.</p>
+</section>
+<section id="global-spatial-autocorrelation" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="global-spatial-autocorrelation"><span class="header-section-number">3.4.2</span> Global spatial autocorrelation</h3>
+<p>Global spatial autocorrelation was assessed using Moran’s I with a k = 4 nearest-neighbor weights matrix. The result was Moran’s I = −0.008 (permutation test p = 0.373), indicating no statistically significant global clustering of LC incidence across localities (<em><a href="#fig-moran" class="quarto-xref">Figure&nbsp;7</a></em>). This finding is consistent with the overall conclusion that apparent geographic gradients in crude case maps are attributable to population size and confounding rather than true spatial clustering of risk.</p>
+</section>
+<section id="local-indicators-of-spatial-association" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="local-indicators-of-spatial-association"><span class="header-section-number">3.4.3</span> Local indicators of spatial association</h3>
+<p>LISA analysis identified three statistically significant localities (p &lt; 0.05), all classified as Low–High outliers: Beitegen, Fassuta, and Kiryat Shmona — localities with relatively low incidence surrounded by higher-incidence neighbors (<em><a href="#fig-lisa" class="quarto-xref">Figure&nbsp;8</a></em>, <em><a href="#tbl-lisa" class="quarto-xref">Table&nbsp;3</a></em>). No High–High hotspots or High–Low outliers reached statistical significance, corroborating the global Moran’s I result.</p>
+<div class="cell">
+<div id="fig-kde-maps-1" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kde-maps-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-65eae2ff2f5153610247" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-65eae2ff2f5153610247">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[32.9575,32.926111111111,32.607777777778,32.719722222222,32.496111111111,32.965278,32.693055555556,32.862411111111,32.936388888889,32.656197222222,32.902597222222,33.033227777778,33.049444444444,32.556397222222,32.45,32.8191666666667,32.6825,32.933372222222,33.020897222222,32.816666666667,32.9,32.9925,32.8,32.833055555556,32.836944444444,33.2075,32.833055555556,32.963827777778,32.963055555556,32.678611111111,33.003611111111,32.931944444444,32.702102777778,32.7711111111111,32.716666666667,32.93165,32.866666666667,32.888888888889,32.7219444444444,33.165397222222,32.805555555556,32.851147222222,32.789722222222,32.766666666667,32.965977777778,32.776936111111,32.686944444444,32.933333333333,32.836944444444],[35.172777777778,35.083888888889,35.289722222222,35.144166666667,35.498888888889,35.3794,35.049444444444,35.371169444444,35.271944444444,35.417097222222,35.096297222222,35.322727777778,35.305833333333,35.076997222222,34.916666666667,34.9991666666667,35.324444444444,35.141313888889,35.149,35.266666666667,35.283333333333,35.690555555556,35.1,35.066388888889,35.0775,35.569722222222,35.066388888889,35.302308333333,35.0975,35.244444444444,35.0925,35.3175,35.303333,35.0394444444444,35.333333333333,35.319586111111,35.3,35.236944444444,35.1116666666667,35.660697222222,35.169444444444,35.207108333333,35.524722222222,34.966666666667,35.593205555556,35.375675,35.275277777778,35.183333333333,35.273611111111],[10,25.625,13.125,10,10,10,10,10,10,10,10,10,10,10,10,60,10,10,10,10,13.125,10,25.625,16.25,13.125,13.125,13.125,10,10,13.125,16.25,10,19.375,13.125,16.25,10,13.125,10,10,10,10,10,13.125,13.125,10,10,10,10,10],null,null,{"interactive":true,"className":"","stroke":false,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":[0.2,0.35625,0.23125,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.7,0.2,0.2,0.2,0.2,0.23125,0.2,0.35625,0.2625,0.23125,0.23125,0.23125,0.2,0.2,0.23125,0.2625,0.2,0.29375,0.23125,0.2625,0.2,0.23125,0.2,0.2,0.2,0.2,0.2,0.23125,0.23125,0.2,0.2,0.2,0.2,0.2]},null,null,["<b>Abu Snan<\/b><br>Cases: 1","<b>Acre<\/b><br>Cases: 6","<b>Afula<\/b><br>Cases: 2","<b>Alonim<\/b><br>Cases: 1","<b>Beit She'an<\/b><br>Cases: 1","<b>Beitegen<\/b><br>Cases: 1","<b>Daliyat al-Karmel<\/b><br>Cases: 1","<b>Deir Hanna<\/b><br>Cases: 1","<b>Deir al-Asad<\/b><br>Cases: 1","<b>Ein Dor<\/b><br>Cases: 1","<b>Ein HaMifratz<\/b><br>Cases: 1","<b>Elkosh<\/b><br>Cases: 1","<b>Fassuta<\/b><br>Cases: 1","<b>Gal'ed<\/b><br>Cases: 1","<b>Hadera<\/b><br>Cases: 1","<b>Haifa<\/b><br>Cases: 17","<b>Iksal<\/b><br>Cases: 1","<b>Jadeidi-Makr<\/b><br>Cases: 1","<b>Kabri<\/b><br>Cases: 1","<b>Kafr Manda<\/b><br>Cases: 1","<b>Karmiel<\/b><br>Cases: 2","<b>Katzrin<\/b><br>Cases: 1","<b>Kiryat Ata<\/b><br>Cases: 6","<b>Kiryat Bialik<\/b><br>Cases: 3","<b>Kiryat Motzkin<\/b><br>Cases: 2","<b>Kiryat Shmona<\/b><br>Cases: 2","<b>Kiryat Yam<\/b><br>Cases: 2","<b>Kisra-Sumei<\/b><br>Cases: 1","<b>Lohamei HaGeta'ot<\/b><br>Cases: 1","<b>Migdal HaEmek<\/b><br>Cases: 2","<b>Nahariya<\/b><br>Cases: 3","<b>Nahf<\/b><br>Cases: 1","<b>Nazareth<\/b><br>Cases: 4","<b>Nesher<\/b><br>Cases: 2","<b>Nof HaGalil<\/b><br>Cases: 3","<b>Sajur<\/b><br>Cases: 1","<b>Sakhnin<\/b><br>Cases: 2","<b>Sha'ab<\/b><br>Cases: 1","<b>Sha'ar HaAmakim<\/b><br>Cases: 1","<b>Shamir<\/b><br>Cases: 1","<b>Shefa-Amr<\/b><br>Cases: 1","<b>Tamra<\/b><br>Cases: 1","<b>Tiberias<\/b><br>Cases: 2","<b>Tirat Carmel<\/b><br>Cases: 2","<b>Tuba-Zangariyye<\/b><br>Cases: 1","<b>Tur'an<\/b><br>Cases: 1","<b>Yafa an-Naseriyye<\/b><br>Cases: 1","<b>Yarka<\/b><br>Cases: 1","<b>Yodfat<\/b><br>Cases: 1"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addControl","args":["<b>Unadjusted<\/b><br>(absolute counts)","topright",null,"info legend"]}],"setView":[[32.5,35.1],8,[]],"limits":{"lat":[32.45,33.2075],"lng":[34.916666666667,35.690555555556]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kde-maps-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Kernel density heatmaps of LC cases across Northern Israel. A: Unadjusted (absolute counts). B: Population-adjusted (relative risk intensity). Bubble size and opacity reflect case density. Click to interact.
+</figcaption>
+</figure>
+</div>
+<div id="fig-kde-maps-2" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kde-maps-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-ed9ee539480ca87f7a1b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ed9ee539480ca87f7a1b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[32.9575,32.926111111111,32.607777777778,32.719722222222,32.496111111111,32.965278,32.693055555556,32.862411111111,32.936388888889,32.656197222222,32.902597222222,33.033227777778,33.049444444444,32.556397222222,32.45,32.8191666666667,32.6825,32.933372222222,33.020897222222,32.816666666667,32.9,32.9925,32.8,32.833055555556,32.836944444444,33.2075,32.833055555556,32.963827777778,32.963055555556,32.678611111111,33.003611111111,32.931944444444,32.702102777778,32.7711111111111,32.716666666667,32.93165,32.866666666667,32.888888888889,32.7219444444444,33.165397222222,32.805555555556,32.851147222222,32.789722222222,32.766666666667,32.965977777778,32.776936111111,32.686944444444,32.933333333333,32.836944444444],[35.172777777778,35.083888888889,35.289722222222,35.144166666667,35.498888888889,35.3794,35.049444444444,35.371169444444,35.271944444444,35.417097222222,35.096297222222,35.322727777778,35.305833333333,35.076997222222,34.916666666667,34.9991666666667,35.324444444444,35.141313888889,35.149,35.266666666667,35.283333333333,35.690555555556,35.1,35.066388888889,35.0775,35.569722222222,35.066388888889,35.302308333333,35.0975,35.244444444444,35.0925,35.3175,35.303333,35.0394444444444,35.333333333333,35.319586111111,35.3,35.236944444444,35.1116666666667,35.660697222222,35.169444444444,35.207108333333,35.524722222222,34.966666666667,35.593205555556,35.375675,35.275277777778,35.183333333333,35.273611111111],[10.81482604906416,11.37778689552968,10.28913559620037,28.1331307210017,10.53559025361206,10.96388372341974,10.61040527171138,11.13450335520393,10.95066013709431,21.33309556974123,24.99721010118436,60,13.82606851601367,32.55849238515182,10,10.63733353750198,10.76806807281036,10.53887053908708,22.16433299203953,10.4901755724631,10.42455697208345,11.53884220604507,11.16702680366073,10.73963915472148,10.395920325071,10.97825480533838,10.50824254326803,11.32668737361208,23.55917482018442,10.81235579022072,10.46236157235987,10.84319884361437,10.56801770414482,11.05069734718815,10.75538804598043,13.01115119123454,10.68085436085238,11.62526288349437,26.73040075065801,25.94123574047922,10.18296357698845,10.24383451128102,10.39463425197749,10.7138397671736,11.7575197091952,10.78310803953661,10.59407087553953,10.68365657372714,23.25811517587184],null,null,{"interactive":true,"className":"","stroke":false,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":[0.2081482604906416,0.2137778689552968,0.2028913559620037,0.381331307210017,0.2053559025361206,0.2096388372341975,0.2061040527171138,0.2113450335520393,0.2095066013709431,0.3133309556974123,0.3499721010118436,0.7,0.2382606851601367,0.4255849238515181,0.2,0.2063733353750198,0.2076806807281036,0.2053887053908708,0.3216433299203953,0.204901755724631,0.2042455697208345,0.2153884220604508,0.2116702680366073,0.2073963915472148,0.20395920325071,0.2097825480533838,0.2050824254326803,0.2132668737361209,0.3355917482018441,0.2081235579022072,0.2046236157235987,0.2084319884361437,0.2056801770414482,0.2105069734718815,0.2075538804598043,0.2301115119123455,0.2068085436085238,0.2162526288349437,0.3673040075065801,0.3594123574047922,0.2018296357698845,0.2024383451128102,0.2039463425197749,0.2071383976717361,0.217575197091952,0.2078310803953661,0.2059407087553953,0.2068365657372714,0.3325811517587184]},null,null,["<b>Abu Snan<\/b><br>Adjusted intensity: 7","<b>Acre<\/b><br>Adjusted intensity: 11.2","<b>Afula<\/b><br>Adjusted intensity: 3.1","<b>Alonim<\/b><br>Adjusted intensity: 136.4","<b>Beit She'an<\/b><br>Adjusted intensity: 4.9","<b>Beitegen<\/b><br>Adjusted intensity: 8.1","<b>Daliyat al-Karmel<\/b><br>Adjusted intensity: 5.5","<b>Deir Hanna<\/b><br>Adjusted intensity: 9.4","<b>Deir al-Asad<\/b><br>Adjusted intensity: 8","<b>Ein Dor<\/b><br>Adjusted intensity: 85.6","<b>Ein HaMifratz<\/b><br>Adjusted intensity: 113","<b>Elkosh<\/b><br>Adjusted intensity: 374.5","<b>Fassuta<\/b><br>Adjusted intensity: 29.5","<b>Gal'ed<\/b><br>Adjusted intensity: 169.5","<b>Hadera<\/b><br>Adjusted intensity: 0.9","<b>Haifa<\/b><br>Adjusted intensity: 5.7","<b>Iksal<\/b><br>Adjusted intensity: 6.7","<b>Jadeidi-Makr<\/b><br>Adjusted intensity: 5","<b>Kabri<\/b><br>Adjusted intensity: 91.8","<b>Kafr Manda<\/b><br>Adjusted intensity: 4.6","<b>Karmiel<\/b><br>Adjusted intensity: 4.1","<b>Katzrin<\/b><br>Adjusted intensity: 12.4","<b>Kiryat Ata<\/b><br>Adjusted intensity: 9.7","<b>Kiryat Bialik<\/b><br>Adjusted intensity: 6.5","<b>Kiryat Motzkin<\/b><br>Adjusted intensity: 3.9","<b>Kiryat Shmona<\/b><br>Adjusted intensity: 8.2","<b>Kiryat Yam<\/b><br>Adjusted intensity: 4.7","<b>Kisra-Sumei<\/b><br>Adjusted intensity: 10.8","<b>Lohamei HaGeta'ot<\/b><br>Adjusted intensity: 102.2","<b>Migdal HaEmek<\/b><br>Adjusted intensity: 7","<b>Nahariya<\/b><br>Adjusted intensity: 4.4","<b>Nahf<\/b><br>Adjusted intensity: 7.2","<b>Nazareth<\/b><br>Adjusted intensity: 5.2","<b>Nesher<\/b><br>Adjusted intensity: 8.8","<b>Nof HaGalil<\/b><br>Adjusted intensity: 6.6","<b>Sajur<\/b><br>Adjusted intensity: 23.4","<b>Sakhnin<\/b><br>Adjusted intensity: 6","<b>Sha'ab<\/b><br>Adjusted intensity: 13.1","<b>Sha'ar HaAmakim<\/b><br>Adjusted intensity: 125.9","<b>Shamir<\/b><br>Adjusted intensity: 120","<b>Shefa-Amr<\/b><br>Adjusted intensity: 2.3","<b>Tamra<\/b><br>Adjusted intensity: 2.8","<b>Tiberias<\/b><br>Adjusted intensity: 3.9","<b>Tirat Carmel<\/b><br>Adjusted intensity: 6.3","<b>Tuba-Zangariyye<\/b><br>Adjusted intensity: 14.1","<b>Tur'an<\/b><br>Adjusted intensity: 6.8","<b>Yafa an-Naseriyye<\/b><br>Adjusted intensity: 5.4","<b>Yarka<\/b><br>Adjusted intensity: 6","<b>Yodfat<\/b><br>Adjusted intensity: 100"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addControl","args":["<b>Population-adjusted<\/b><br>(relative risk intensity)","topright",null,"info legend"]}],"setView":[[32.5,35.1],8,[]],"limits":{"lat":[32.45,33.2075],"lng":[34.916666666667,35.690555555556]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kde-maps-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Kernel density heatmaps of LC cases across Northern Israel. A: Unadjusted (absolute counts). B: Population-adjusted (relative risk intensity). Bubble size and opacity reflect case density. Click to interact.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-moran" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-moran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="EnvEpi_LungCancer_files/figure-html/fig-moran-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Moran scatterplot of LC incidence across Northern Israel. Each point represents a locality. Positive spatial autocorrelation is indicated by points clustering in the upper-right (high–high) and lower-left (low–low) quadrants.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div id="fig-lisa" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lisa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-d6a92b173c6d05dc91f4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d6a92b173c6d05dc91f4">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[32.9575,32.926111111111,32.607777777778,32.719722222222,32.496111111111,32.965278,32.693055555556,32.862411111111,32.936388888889,32.656197222222,32.902597222222,33.033227777778,33.049444444444,32.556397222222,32.45,32.8191666666667,32.6825,32.933372222222,33.020897222222,32.816666666667,32.9,32.9925,32.8,32.833055555556,32.836944444444,33.2075,32.833055555556,32.963827777778,32.963055555556,32.678611111111,33.003611111111,32.931944444444,32.702102777778,32.7711111111111,32.716666666667,32.93165,32.866666666667,32.888888888889,32.7219444444444,33.165397222222,32.805555555556,32.851147222222,32.789722222222,32.766666666667,32.965977777778,32.776936111111,32.686944444444,32.933333333333,32.836944444444],[35.172777777778,35.083888888889,35.289722222222,35.144166666667,35.498888888889,35.3794,35.049444444444,35.371169444444,35.271944444444,35.417097222222,35.096297222222,35.322727777778,35.305833333333,35.076997222222,34.916666666667,34.9991666666667,35.324444444444,35.141313888889,35.149,35.266666666667,35.283333333333,35.690555555556,35.1,35.066388888889,35.0775,35.569722222222,35.066388888889,35.302308333333,35.0975,35.244444444444,35.0925,35.3175,35.303333,35.0394444444444,35.333333333333,35.319586111111,35.3,35.236944444444,35.1116666666667,35.660697222222,35.169444444444,35.207108333333,35.524722222222,34.966666666667,35.593205555556,35.375675,35.275277777778,35.183333333333,35.273611111111],8,null,null,{"interactive":true,"className":"","stroke":false,"color":["#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#91BFDB","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#91BFDB","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#91BFDB","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#91BFDB","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#91BFDB","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#91BFDB","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC","#CCCCCC"],"fillOpacity":0.8},null,null,["<b>Abu Snan<\/b><br>Incidence: 7 per 100,000<br>LISA p = 0.614<br>Cluster: Not significant","<b>Acre<\/b><br>Incidence: 11.2 per 100,000<br>LISA p = 0.58<br>Cluster: Not significant","<b>Afula<\/b><br>Incidence: 3.1 per 100,000<br>LISA p = 0.347<br>Cluster: Not significant","<b>Alonim<\/b><br>Incidence: 136.4 per 100,000<br>LISA p = 0.92<br>Cluster: Not significant","<b>Beit She'an<\/b><br>Incidence: 4.9 per 100,000<br>LISA p = 0.762<br>Cluster: Not significant","<b>Beitegen<\/b><br>Incidence: 8.1 per 100,000<br>LISA p = 0.049<br>Cluster: Low–High outlier","<b>Daliyat al-Karmel<\/b><br>Incidence: 5.5 per 100,000<br>LISA p = 0.314<br>Cluster: Not significant","<b>Deir Hanna<\/b><br>Incidence: 9.4 per 100,000<br>LISA p = 0.463<br>Cluster: Not significant","<b>Deir al-Asad<\/b><br>Incidence: 8 per 100,000<br>LISA p = 0.462<br>Cluster: Not significant","<b>Ein Dor<\/b><br>Incidence: 85.6 per 100,000<br>LISA p = 0.388<br>Cluster: Not significant","<b>Ein HaMifratz<\/b><br>Incidence: 113 per 100,000<br>LISA p = 0.903<br>Cluster: Not significant","<b>Elkosh<\/b><br>Incidence: 374.5 per 100,000<br>LISA p = 0.519<br>Cluster: Not significant","<b>Fassuta<\/b><br>Incidence: 29.5 per 100,000<br>LISA p = 0.046<br>Cluster: Low–High outlier","<b>Gal'ed<\/b><br>Incidence: 169.5 per 100,000<br>LISA p = 0.289<br>Cluster: Not significant","<b>Hadera<\/b><br>Incidence: 0.9 per 100,000<br>LISA p = 0.248<br>Cluster: Not significant","<b>Haifa<\/b><br>Incidence: 5.7 per 100,000<br>LISA p = 0.411<br>Cluster: Not significant","<b>Iksal<\/b><br>Incidence: 6.7 per 100,000<br>LISA p = 0.37<br>Cluster: Not significant","<b>Jadeidi-Makr<\/b><br>Incidence: 5 per 100,000<br>LISA p = 0.477<br>Cluster: Not significant","<b>Kabri<\/b><br>Incidence: 91.8 per 100,000<br>LISA p = 0.88<br>Cluster: Not significant","<b>Kafr Manda<\/b><br>Incidence: 4.6 per 100,000<br>LISA p = 0.863<br>Cluster: Not significant","<b>Karmiel<\/b><br>Incidence: 4.1 per 100,000<br>LISA p = 0.409<br>Cluster: Not significant","<b>Katzrin<\/b><br>Incidence: 12.4 per 100,000<br>LISA p = 0.997<br>Cluster: Not significant","<b>Kiryat Ata<\/b><br>Incidence: 9.7 per 100,000<br>LISA p = 0.367<br>Cluster: Not significant","<b>Kiryat Bialik<\/b><br>Incidence: 6.5 per 100,000<br>LISA p = 0.387<br>Cluster: Not significant","<b>Kiryat Motzkin<\/b><br>Incidence: 3.9 per 100,000<br>LISA p = 0.939<br>Cluster: Not significant","<b>Kiryat Shmona<\/b><br>Incidence: 8.2 per 100,000<br>LISA p = 0.003<br>Cluster: Low–High outlier","<b>Kiryat Yam<\/b><br>Incidence: 4.7 per 100,000<br>LISA p = 0.392<br>Cluster: Not significant","<b>Kisra-Sumei<\/b><br>Incidence: 10.8 per 100,000<br>LISA p = 0.434<br>Cluster: Not significant","<b>Lohamei HaGeta'ot<\/b><br>Incidence: 102.2 per 100,000<br>LISA p = 0.995<br>Cluster: Not significant","<b>Migdal HaEmek<\/b><br>Incidence: 7 per 100,000<br>LISA p = 0.355<br>Cluster: Not significant","<b>Nahariya<\/b><br>Incidence: 4.4 per 100,000<br>LISA p = 0.634<br>Cluster: Not significant","<b>Nahf<\/b><br>Incidence: 7.2 per 100,000<br>LISA p = 0.448<br>Cluster: Not significant","<b>Nazareth<\/b><br>Incidence: 5.2 per 100,000<br>LISA p = 0.388<br>Cluster: Not significant","<b>Nesher<\/b><br>Incidence: 8.8 per 100,000<br>LISA p = 0.38<br>Cluster: Not significant","<b>Nof HaGalil<\/b><br>Incidence: 6.6 per 100,000<br>LISA p = 0.361<br>Cluster: Not significant","<b>Sajur<\/b><br>Incidence: 23.4 per 100,000<br>LISA p = 0.394<br>Cluster: Not significant","<b>Sakhnin<\/b><br>Incidence: 6 per 100,000<br>LISA p = 0.86<br>Cluster: Not significant","<b>Sha'ab<\/b><br>Incidence: 13.1 per 100,000<br>LISA p = 0.821<br>Cluster: Not significant","<b>Sha'ar HaAmakim<\/b><br>Incidence: 125.9 per 100,000<br>LISA p = 0.808<br>Cluster: Not significant","<b>Shamir<\/b><br>Incidence: 120 per 100,000<br>LISA p = 0.472<br>Cluster: Not significant","<b>Shefa-Amr<\/b><br>Incidence: 2.3 per 100,000<br>LISA p = 0.936<br>Cluster: Not significant","<b>Tamra<\/b><br>Incidence: 2.8 per 100,000<br>LISA p = 0.861<br>Cluster: Not significant","<b>Tiberias<\/b><br>Incidence: 3.9 per 100,000<br>LISA p = 0.827<br>Cluster: Not significant","<b>Tirat Carmel<\/b><br>Incidence: 6.3 per 100,000<br>LISA p = 0.384<br>Cluster: Not significant","<b>Tuba-Zangariyye<\/b><br>Incidence: 14.1 per 100,000<br>LISA p = 0.983<br>Cluster: Not significant","<b>Tur'an<\/b><br>Incidence: 6.8 per 100,000<br>LISA p = 0.379<br>Cluster: Not significant","<b>Yafa an-Naseriyye<\/b><br>Incidence: 5.4 per 100,000<br>LISA p = 0.362<br>Cluster: Not significant","<b>Yarka<\/b><br>Incidence: 6 per 100,000<br>LISA p = 0.394<br>Cluster: Not significant","<b>Yodfat<\/b><br>Incidence: 100 per 100,000<br>LISA p = 0.423<br>Cluster: Not significant"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["#91BFDB","#CCCCCC"],"labels":["Low–High outlier","Not significant"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"topright","type":"factor","title":"LISA cluster type","extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[32.45,33.2075],"lng":[34.916666666667,35.690555555556]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lisa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Local Moran’s I (LISA) analysis of LC incidence across Northern Israel. Localities are classified by cluster type: hotspots (High–High), coldspots (Low–Low), high–low outliers, and low–high outliers. Only localities with p &lt; 0.05 are highlighted; non-significant localities are shown in grey.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>LISA analysis identified three statistically significant Low–High outliers (p &lt; 0.05): Beitegen, Fassuta, and Kiryat Shmona — localities with relatively low incidence surrounded by higher-incidence neighbors (<em><a href="#tbl-lisa" class="quarto-xref">Table&nbsp;3</a></em>). No High–High hotspots or High–Low outliers reached statistical significance. This absence of significant local clustering corroborates the global Moran’s I result (I = −0.008, p = 0.373) and is consistent with the conclusion that apparent geographic gradients in crude case maps are attributable to population size distribution and smoking prevalence rather than true spatial clustering of risk.</p>
+<div class="cell">
+<div id="tbl-lisa" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lisa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Localities classified as statistically significant LISA clusters (p &lt; 0.05). All three identified localities are Low–High outliers — low incidence surrounded by higher-incidence neighbors.
+</figcaption>
+<div aria-describedby="tbl-lisa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover do-not-create-environment cell caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Locality</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Population</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Cases (n)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Incidence (per 100,000)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Local Moran's I</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p-value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Cluster type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beitegen</td>
+<td style="text-align: right;">12287</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.1</td>
+<td style="text-align: right;">-0.433</td>
+<td style="text-align: right;">0.049</td>
+<td style="text-align: left;">Low–High outlier</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fassuta</td>
+<td style="text-align: right;">3387</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">29.5</td>
+<td style="text-align: right;">-0.085</td>
+<td style="text-align: right;">0.046</td>
+<td style="text-align: left;">Low–High outlier</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kiryat Shmona</td>
+<td style="text-align: right;">24254</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: right;">-0.596</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: left;">Low–High outlier</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="smoking-as-a-confounder" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="smoking-as-a-confounder"><span class="header-section-number">3.4.4</span> Smoking as a confounder</h3>
+<p>To evaluate whether the observed spatial patterns could be explained by smoking prevalence, the population-adjusted distribution of smoker cases was mapped (<em><a href="#fig-smoking-kde" class="quarto-xref">Figure&nbsp;9</a></em>) and stratified Moran’s I analyses were performed. Among smokers only, Moran’s I was 0.026 (p = 0.725); among non-smokers only, Moran’s I was −0.032 (p = 0.626) — neither significant. The statistically significant clustering observed in the combined unadjusted dataset thus disappeared once smoking status was accounted for, identifying smoking as a true spatial confounder rather than an independent geographic risk factor.</p>
+</section>
+<section id="ethnicity-as-a-potential-determinant" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="ethnicity-as-a-potential-determinant"><span class="header-section-number">3.4.5</span> Ethnicity as a potential determinant</h3>
+<p>The cohort comprised four ethnic groups: Jewish (68.1%), Arab (25.5%), Druze (5.3%), and Bedouin (1.1%). Smoking prevalence among Jewish and Arab cases was similar at 53.1% and 50.0%, respectively; no smokers were recorded among Druze or Bedouin cases (<em><a href="#tbl-ethnicity-smoking" class="quarto-xref">Table&nbsp;4</a></em>). Fisher’s exact test comparing smoking prevalence between Jewish and Arab cases yielded p = 0.815, indicating no statistically significant difference. Druze and Bedouin cases were excluded from formal testing due to zero observed smokers in both groups.</p>
+<p>These findings indicate that ethnicity does not independently explain the geographic distribution of LC cases in this cohort. Its role is more likely indirect, mediated through residential settlement patterns and their overlap with smoking prevalence.</p>
+<div class="cell">
+<div id="fig-smoking-kde" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-smoking-kde-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-b1c24d5e12fe39bc675c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-b1c24d5e12fe39bc675c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[32.9575,32.926111111111,32.719722222222,32.496111111111,32.656197222222,33.049444444444,32.556397222222,32.45,32.8191666666667,32.6825,33.020897222222,32.9,32.8,33.2075,32.833055555556,32.678611111111,33.003611111111,32.702102777778,32.7711111111111,32.716666666667,32.866666666667,32.888888888889,32.7219444444444,32.805555555556,32.851147222222,32.789722222222,32.766666666667],[35.172777777778,35.083888888889,35.144166666667,35.498888888889,35.417097222222,35.305833333333,35.076997222222,34.916666666667,34.9991666666667,35.324444444444,35.149,35.283333333333,35.1,35.569722222222,35.066388888889,35.244444444444,35.0925,35.303333,35.0394444444444,35.333333333333,35.3,35.236944444444,35.1116666666667,35.169444444444,35.207108333333,35.524722222222,34.966666666667],[7.630307388663631,7.815589890253698,27.11166791717655,6.706510788632087,21.87497852352299,13.63500671198723,29.99999999784252,4,5.445095746607332,7.486299603725909,22.58639589538789,5.00437835353063,7.386085029702714,8.107403562717376,6.606272235048337,7.622790207642094,4.522262216589745,5.384398827719717,6.43430561538606,5.107399348321375,5.656296746610179,9.714929548809378,26.12432790693268,5.186619114953052,5.495321674399257,6.164639607149778,7.314478860797955],null,null,{"interactive":true,"className":"","stroke":false,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"steelblue","fillOpacity":[0.2216723538562972,0.2233191055446989,0.6822963452866955,0.2142453736126819,0.5014322599980182,0.3017639419514396,0.7999999999964404,0.2,0.206212051707932,0.2204287075490386,0.5235411157167762,0.2039790226255731,0.2195819747423511,0.2260191538148126,0.2135179922821316,0.2216066510920897,0.2018764785806061,0.2058868726220775,0.2123059138611743,0.2044744046176465,0.2073874603579116,0.2432279654793196,0.6449872038852431,0.2048663777843893,0.2064853938051304,0.2104962932425814,0.2189863689908433]},null,null,["<b>Abu Snan<\/b><br>Smoker cases: 1<br>Adjusted intensity: 7 per 100,000","<b>Acre<\/b><br>Smoker cases: 4<br>Adjusted intensity: 7.5 per 100,000","<b>Alonim<\/b><br>Smoker cases: 1<br>Adjusted intensity: 136.4 per 100,000","<b>Beit She'an<\/b><br>Smoker cases: 1<br>Adjusted intensity: 4.9 per 100,000","<b>Ein Dor<\/b><br>Smoker cases: 1<br>Adjusted intensity: 85.6 per 100,000","<b>Fassuta<\/b><br>Smoker cases: 1<br>Adjusted intensity: 29.5 per 100,000","<b>Gal'ed<\/b><br>Smoker cases: 1<br>Adjusted intensity: 169.5 per 100,000","<b>Hadera<\/b><br>Smoker cases: 1<br>Adjusted intensity: 0.9 per 100,000","<b>Haifa<\/b><br>Smoker cases: 8<br>Adjusted intensity: 2.7 per 100,000","<b>Iksal<\/b><br>Smoker cases: 1<br>Adjusted intensity: 6.7 per 100,000","<b>Kabri<\/b><br>Smoker cases: 1<br>Adjusted intensity: 91.8 per 100,000","<b>Karmiel<\/b><br>Smoker cases: 1<br>Adjusted intensity: 2.1 per 100,000","<b>Kiryat Ata<\/b><br>Smoker cases: 4<br>Adjusted intensity: 6.4 per 100,000","<b>Kiryat Shmona<\/b><br>Smoker cases: 2<br>Adjusted intensity: 8.2 per 100,000","<b>Kiryat Yam<\/b><br>Smoker cases: 2<br>Adjusted intensity: 4.7 per 100,000","<b>Migdal HaEmek<\/b><br>Smoker cases: 2<br>Adjusted intensity: 7 per 100,000","<b>Nahariya<\/b><br>Smoker cases: 1<br>Adjusted intensity: 1.5 per 100,000","<b>Nazareth<\/b><br>Smoker cases: 2<br>Adjusted intensity: 2.6 per 100,000","<b>Nesher<\/b><br>Smoker cases: 1<br>Adjusted intensity: 4.4 per 100,000","<b>Nof HaGalil<\/b><br>Smoker cases: 1<br>Adjusted intensity: 2.2 per 100,000","<b>Sakhnin<\/b><br>Smoker cases: 1<br>Adjusted intensity: 3 per 100,000","<b>Sha'ab<\/b><br>Smoker cases: 1<br>Adjusted intensity: 13.1 per 100,000","<b>Sha'ar HaAmakim<\/b><br>Smoker cases: 1<br>Adjusted intensity: 125.9 per 100,000","<b>Shefa-Amr<\/b><br>Smoker cases: 1<br>Adjusted intensity: 2.3 per 100,000","<b>Tamra<\/b><br>Smoker cases: 1<br>Adjusted intensity: 2.8 per 100,000","<b>Tiberias<\/b><br>Smoker cases: 2<br>Adjusted intensity: 3.9 per 100,000","<b>Tirat Carmel<\/b><br>Smoker cases: 2<br>Adjusted intensity: 6.3 per 100,000"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addControl","args":["<b>Smoker cases<\/b><br>(population-adjusted)","topright",null,"info legend"]}],"limits":{"lat":[32.45,33.2075],"lng":[34.916666666667,35.569722222222]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-smoking-kde-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Population-adjusted distribution of smoker cases across Northern Israel. Circle size and opacity reflect the proportion of smokers per locality population (per 100,000). Compare with Figure 3.2.5b to assess geographic overlap between smoking prevalence and LC incidence.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>The population-adjusted distribution of smoker cases shows partial geographic overlap with LC incidence (<em><strong>?@fig-kde-maps</strong></em>), particularly in the coastal corridor and central inland zone. However, the correspondence is imperfect — consistent with the Moran’s I stratified analysis, which showed no significant spatial autocorrelation among smokers or non-smokers when examined separately. Together, these findings suggest that smoking shapes the overall geographic distribution of LC cases but does not fully explain it at the local level.</p>
+<div class="cell">
+<div id="tbl-ethnicity-smoking" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ethnicity-smoking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: LC cases and smoking prevalence by ethnic group. Chi-square test of independence was applied to compare smoking prevalence between Jewish and Arab cases.
+</figcaption>
+<div aria-describedby="tbl-ethnicity-smoking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover do-not-create-environment cell caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Ethnicity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Cases</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">% of total cases</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Smokers</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">% of smokers among the cases (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Jewish</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">68.1</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">53.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arab</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">25.5</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">50.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Druze</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bedouin</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>         smoking
+ethnic    Non-smoker Smoker
+  Jewish          30     34
+  Arab            12     12
+  Druze            0      0
+  Bedouin          0      0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fisher's Exact Test for Count Data
+
+data:  ct
+p-value = 0.8151
+alternative hypothesis: two.sided</code></pre>
+</div>
+</div>
+<p>Fisher’s exact test comparing smoking prevalence between Jewish and Arab cases yielded p = 0.815, indicating no statistically significant difference. Druze and Bedouin cases were excluded from formal testing due to zero observed smokers in both groups — a finding that may reflect cultural norms, small subgroup size, or referral patterns rather than true population prevalence. Together, these results suggest that ethnicity does not independently explain the geographic distribution of LC cases in this cohort; its role is more likely indirect, mediated through residential settlement patterns and their overlap with smoking prevalence.</p>
+</section>
+</section>
+</section>
+<section id="discussion" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Discussion</h1>
+<p>This analysis of 94 LC cases from the Lady Davis Carmel Medical Center demonstrates both the potential and the inherent limitations of hospital-based spatial epidemiology. The molecular and histopathological findings align closely with internationally reported patterns: ACA was the dominant subtype, EGFR and KRAS were the most frequent actionable alterations, and PD-L1 positivity was concentrated in ACAs — consistent with current global literature on non-small-cell LC molecular profiling.</p>
+<p>The spatial analyses tell a methodologically instructive story. Crude case mapping initially suggested geographic clustering centered on the city of Haifa and coastal urban centers. However, successive analytical steps overturned this impression: population adjustment redistributed apparent risk toward smaller inland localities; global Moran’s I confirmed the absence of statistically significant spatial autocorrelation; and LISA identified only three Low–High outliers, with no true hotspots. Most critically, stratified Moran’s I analyses demonstrated that the modest clustering signal in the unadjusted data dissolved entirely once smoking status was accounted for — identifying smoking as the primary spatial confounder.</p>
+<p>These findings underscore a fundamental principle of spatial epidemiology: apparent geographic clusters of disease cannot be interpreted at face value. Rigorous adjustment for population denominators and behavioral confounders is essential before attributing geographic gradients to environmental or other structural causes.</p>
+<section id="limitations" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="limitations"><span class="header-section-number">4.1</span> Limitations</h2>
+<p>Several limitations constrain the interpretation of these findings.</p>
+<p>First, the dataset is hospital-based and subject to referral bias — patients residing closer to Carmel Medical Center are overrepresented, which may inflate apparent case density in the Haifa metropolitan area.</p>
+<p>Second, the sample size of 94 cases limits statistical power for detecting subtle spatial patterns or subgroup differences.</p>
+<p>Third, smoking history was recorded as a binary variable, precluding dose-response analysis.</p>
+<p>Fourth, ethnic origin was approximated from patient names and residential locality rather than confirmed by self-report, introducing potential misclassification.</p>
+<p>Finally, individual-level environmental exposure data were not available, preventing a formal assessment of gene-environment interactions — the original motivation for this study design.</p>
+<p>Future investigations combining population-based cancer registry data, individual-level exposure measurements, and larger molecularly characterized cohorts would be needed to address these limitations and draw causal conclusions.</p>
+</section>
+</section>
+<section id="conclusions" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Conclusions</h1>
+<p>This analysis demonstrates that apparent geographic clustering of LC cases in Northern Israel, when subjected to rigorous spatial analysis, is explained by the uneven distribution of smoking prevalence and population size across localities rather than by independent environmental or structural risk factors. Global Moran’s I showed no significant spatial autocorrelation (I = −0.008, p = 0.373), and LISA identified only three Low–High outliers — no true hotspots. Stratified analysis confirmed smoking as the primary spatial confounder.</p>
+<p>At the molecular level, the cohort mirrors internationally reported patterns: ACA was the dominant histological subtype, EGFR and KRAS were the most frequently altered actionable drivers, and PD-L1 positivity was concentrated in ACAs. These findings support the continued integration of comprehensive molecular profiling into routine LC diagnostics.</p>
+<p>The principal methodological contribution of this work is the demonstration that sequential adjustment — for population denominators, referral bias, and behavioral confounders — can overturn superficially compelling geographic patterns. This principle applies broadly in spatial epidemiology and is of particular relevance in hospital-based studies with limited catchment area coverage.</p>
+<p>Future work should prioritize population-based cohort designs, individual-level environmental exposure measurements, and extended molecular datasets to enable formal assessment of gene-environment interactions in lung carcinogenesis.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

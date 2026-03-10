@@ -43,6 +43,17 @@ Two complementary objectives guided the analysis:
 Methods
 =======
 
+```{r}
+#| label: setup
+#| echo: false
+
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+```
+
 The dataset comprised 94 anonymized LC cases extracted from the Ofek platform. After loading, variables were recoded as factors with descriptive labels to facilitate analysis and visualization. All analyses were performed in R programming language. The report was authored in Quarto to ensure full reproducibility.
 
 *@tbl-dictionary* summarizes all variables included in the dataset. The variables are described according to a syntactical approach, primarily distinguishing only between numeric and character. Under this approach, the functional role of a variable (continuous, discrete count, binary flag, or categorical) is determined by
@@ -92,17 +103,6 @@ dict %>%
 
 Data analysis
 =============
-
-```{r}
-#| label: setup
-#| echo: false
-
-library(readxl)
-library(dplyr)
-library(ggplot2)
-library(knitr)
-library(kableExtra)
-```
 
 ```{r}
 #| label: data-loading

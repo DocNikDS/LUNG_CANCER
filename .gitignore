@@ -1,39 +1,26 @@
-# Python
-__pycache__/
-*.py[cod]
-*.so
-*.egg
-*.egg-info/
-*.pkl
-*.h5
-*.db-journal
-# Quarto / Pandoc
-_quarto/
-*.log
-*.aux
-*.out
-*.toc
-# Jupyter Notebooks (if ever used)
-.ipynb_checkpoints/
-# Visual Studio Code
-.vscode/
-*.code-workspace
-# OS-specific
+# R session artifacts
+.RData
+.Rhistory
+.Rapp.history
+
+# RStudio project user settings
+.Rproj.user/
+
+# renv (deactivated, not used)
+renv/
+renv.lock
+
+# Quarto intermediate files
+/.quarto/
+*_cache/
+*_files/libs/
+
+# OS artifacts
 .DS_Store
 Thumbs.db
-# Environment
-.env
-.venv/
-env/
-venv/
-# SPSS
-# data
-data/**
-!data/README.md
-# spss binaries
-*.sav
-*.zsav
-*.por
-*.spv
-.Rproj.user
-NikolaiDanilov_EnvEpi_SeminarWork.docx
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*~
