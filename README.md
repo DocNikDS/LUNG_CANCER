@@ -1,85 +1,104 @@
----
-Title: Genetic markers combined with air pollution exposure in the development of lung cancer in a Northern Israeli cohort of different ethnic origins
+# Spatial Distribution and Molecular Characterization of Lung Cancer in a Northern Israeli Cohort
 
-Author: Nik Danilov, MD
+**A Hospital-Based Epidemiological Study**
 
-Institution: University of Haifa, School of Public Health
+Nik Danilov, MD, MPH | School of Public Health, University of Haifa, Israel | 2025
 
-Program: Master of Public Health (Biostatistics)
+**[View the interactive report](https://DocNikDS.github.io/LUNG_CANCER)**
 
-Course: Environmental Epidemiology 
-
-Year: 2025
 ---
 
-## Project overview
+## Overview
 
-This repository contains the code and analysis for a seminar work investigating the combined influence of genomic alterations and environmental exposures on lung cancer (LC) development in a Northern Israeli cohort.
+This repository contains a fully reproducible epidemiological analysis of 94 lung cancer (LC) cases managed at the Lady Davis Carmel Medical Center, Haifa, Israel (2024–2025). The dataset was compiled through systematic review of anonymized electronic medical records extracted from the **Ofek** intra/interhospital medical informatics platform.
 
-By integrating molecular biomarker data (EGFR, KRAS, PD-L1, etc.) with spatially resolved air pollution estimates, this study aimed to elucidate gene-environment interactions across cohorts of different ethnic origins.
+The analysis pursues two complementary objectives:
 
-## Key research questions
+1. To characterize the **spatial distribution** of LC cases across the Haifa District and Northern District of Israel and evaluate whether observed geographic patterns are explained by established confounders — particularly smoking prevalence and population size.
 
-- Genomic profiling: What is the prevalence of key driver mutations (e.g., EGFR, KRAS) and PD-L1 expression in the local cohort? 
+2. To describe the **molecular and histopathological profile** of the cohort and examine how biomarker distributions align with internationally reported data.
 
-- Spatial clustering: Do LC cases cluster geographically in the Haifa Bay area, a region known for industrial pollution? 
+The report is authored in **Quarto** and rendered as an **interactive HTML document**, combining spatial epidemiology with clinical-molecular characterization in a single reproducible workflow.
 
-- Confounder analysis: Is the observed clustering driven by environmental factors or by demographic confounders like smoking and population density? 
+---
 
-## Tech stack & methodology
+## Tech Stack
 
-This project utilized a mixed-tool analytical workflow to ensure rigorous data management, statistical testing, and visualization.
+| Component | Tool |
+|---|---|
+| Reproducible report | Quarto (.qmd) → HTML |
+| Data wrangling | R (`readxl`, `dplyr`) |
+| Tables | R (`knitr`, `kableExtra`) |
+| Static visualization | R (`ggplot2`, `patchwork`) |
+| Interactive maps | R (`leaflet`) |
+| Spatial statistics | R (`spdep`) |
 
-- Data wrangling: Python (pandas), Excel. Cleaning and organizing raw clinical-laboratory data and air pollution metrics.
+---
 
-- Statistical analysis:	Python (scipy, statsmodels). Descriptive statistics, Fisher's exact test, t-tests, and correlation analyses.
+## Dataset
 
-- Spatial statistics:	Python (pysal / esda). Kernel density estimation (KDE) for hotspot visualization and Moran’s I / LISA for testing spatial autocorrelation and clustering significance.
+- **Source:** Anonymized electronic medical records, Lady Davis Carmel Medical Center, Haifa
+- **Platform:** Ofek intra/interhospital medical informatics system
+- **Sample:** 94 consecutive LC cases, 2024–2025
+- **Variables (24):** Demographics (age, sex, ethnic group, locality), smoking status, histopathological diagnosis, immunohistochemistry (PD-L1), next-generation sequencing results (EGFR, KRAS, BRAF, MET, ALK, ROS1, ERBB2, RET, NTRK), mismatch repair status (MSI), tumor mutational burden (TMB)
 
-- Visualization: Python (matplotlib, seaborn), Power BI. Generating publication-quality plots and interactive geospatial maps.
+The full data dictionary is available in the rendered report (Table 1).
 
-## Data sources
+---
 
-- Clinical-laboratory data: A dataset of 94 LC cases managed at the Carmel Medical Center (Haifa) in 2024–2025. Variables include demographics, smoking history, histology, and NGS/IHC molecular results.
- 
-- Environmental data: Annual mean concentrations of key pollutants (PM2.5, PM10, NO2, SO2, O3) obtained from the Israeli Ministry of Environmental Protection (MOEP) monitoring network (2023).
+## Key Findings
 
-## Key findings
+### Spatial analysis
+- Global Moran's I = −0.008 (permutation p = 0.373) — **no significant spatial autocorrelation**
+- LISA identified **three Low–High outliers** (Beitegen, Fassuta, Kiryat Shmona) — no true hotspots
+- Stratified Moran's I (smokers only: p = 0.725; non-smokers only: p = 0.626) confirmed **smoking as the primary spatial confounder**
+- Population adjustment substantially redistributed apparent risk from large coastal cities to smaller inland localities
 
-### 1. The smoking confounder
+### Molecular profiling
+- Adenocarcinoma NOS was the dominant subtype (67.0%)
+- EGFR, BRAF, and ROS1 alterations occurred exclusively in adenocarcinomas
+- Mean TMB ranged from 6.7 mut/Mb (ACA) to 16.1 mut/Mb (NEC)
+- Fisher's exact test: no significant difference in smoking prevalence between Jewish and Arab cases (p = 0.815)
 
-Initial crude mapping suggested significant spatial clustering of LC cases in the Haifa metropolitan area (p = 0.001). However, a rigorous analysis revealed this to be an artifact:
+---
 
-- Population adjustment: When adjusting for population density, the "hotspots" shifted from coastal cities to inland areas (Nazareth, Afula).
+## Repository Structure
 
-- Stratification: When stratified by smoking status, the spatial clustering disappeared entirely (Moran’s I non-significant for both smokers and non-smokers).
+```
+LUNG_CANCER/
+├── data/
+│   └── CarmelMC_LungCancer.xlsx       # Clinical-laboratory dataset (94 cases)
+├── EnvEpi_LungCancer_files/           # Quarto HTML supporting files
+├── EnvEpi_LungCancer.qmd              # Source document (Quarto/R)
+├── EnvEpi_LungCancer.html             # Rendered interactive report
+├── EnvEpi_LungCancer.Rproj            # RStudio project file
+├── .gitignore
+└── README.md
+```
 
-Conclusion: Smoking, rather than environmental pollution, was identified as the primary driver of spatial heterogeneity in this specific cohort.
+---
 
-### 2. Molecular epidemiology
+## Reproducing the Analysis
 
-- Histology: Adenocarcinoma (ACA) was the dominant LC subtype (67.0%).
+1. Clone the repository
+2. Open `EnvEpi_LungCancer.Rproj` in RStudio
+3. Install required R packages:
+```r
+install.packages(c("readxl", "dplyr", "knitr", "kableExtra",
+                   "ggplot2", "patchwork", "tidyr",
+                   "leaflet", "spdep"))
+```
+4. Render the report:
+```r
+quarto::quarto_render("EnvEpi_LungCancer.qmd")
+```
 
-- Biomarkers: High rates of actionable mutations were observed, with EGFR, BRAF, and ROS1 found exclusively in ACA cases.
- 
-- Ethnicity: No significant difference in smoking prevalence was found between Jewish and Arab sub-populations in this cohort.
+---
 
-## Repository structure
+## Methodological Note
 
-- analysis/
-        /CarmelMC_LungCancer.pbix    # Power BI report with interactive visualizations
-        /Python_mapping.py    # Python script for spatial analysis and mapping
-- data/
-      /CarmelMC_LungCancer.xlsx    # Cleaned clinical-laboratory dataset
-- outputs/
-         /a4bf230a-5fab-4e2d-a2a6-a255da8f0c8d.jpeg    # Example output figure from spatial analysis
-         /efbc4187-5b20-4685-a474-22cd24e26d0f.jpeg    # Example output figure from spatial analysis
-         /Figure_3.2.4.html    # Example output figure from spatial analysis
-         /id-locality_map.jpeg    # Example output figure from spatial analysis
-         /id-locality_plot.jpeg    # Example output figure from spatial analysis
-         /kde_LC_plot.jpeg    # Example output figure from spatial analysis
-         /output.png    # Example output figure from spatial analysis
-- .gitignore
-- ENV_EPI_SEMINAR.code-workspace
-- NikolaiDanilov_EnvEpi_SeminarWork.docx
-- README.md
+The analysis demonstrates a key principle of spatial epidemiology: apparent geographic clusters of disease cannot be interpreted at face value. Sequential adjustment for population denominators and behavioral confounders (smoking) overturned an initially significant clustering signal, illustrating how rigorous analysis can prevent misleading conclusions from crude case maps.
+
+---
+
+*Course: Environmental Epidemiology | Instructor: Jonathan Dubnov, MD, MPH | School of Public Health, University of Haifa*
