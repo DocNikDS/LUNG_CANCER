@@ -3,10 +3,7 @@ title: "Spatial Distribution and Molecular Characterization of Lung Cancer in a 
 subtitle: "A Hospital-Based Epidemiological Study"
 author:
   - name: Nik Danilov
-    affiliations:
-      - name: School of Public Health, University of Haifa | Lady Davis Carmel Medical Center
-        city: Haifa
-        country: Israel
+    affiliation: School of Public Health, University of Haifa | Lady Davis Carmel Medical Center, Haifa, Israel
     email: danilov.md@gmail.com
 date: "2025"
 date-format: "YYYY"
@@ -14,7 +11,7 @@ format:
   html:
     toc: true
     toc-depth: 3
-    number-sections: true
+    number-sections: false
     theme: cosmo
 execute:
   echo: false
@@ -30,28 +27,31 @@ engine: knitr
 ---
 
 Introduction
-============
+------------
 
-This report presents a hospital-based epidemiological analysis of lung cancer (LC) cases managed at the Lady Davis Carmel Medical Center, Haifa, Israel (2024–2025). The dataset was compiled through systematic review of anonymized electronic medical records extracted from the Ofek intra/interhospital medical informatics platform, covering 94 LC cases with complete histopathological and molecular characterization.
+This report presents a hospital-based epidemiological analysis of lung cancer (LC) cases managed at the Lady Davis Carmel Medical Center, Haifa, Israel (2024–2025). The dataset was compiled through systematic review of anonymized electronic medical records extracted from the Ofek intra/interhospital medical informatics platform, covering 94 LC cases with their histopathological and molecular characterization.
 
 Two complementary objectives guided the analysis: 
 
-1) to characterize the spatial distribution of LC cases across the Haifa District and Northern District and evaluate whether observed geographic patterns are explained by established confounders — particularly smoking prevalence and population size
+1. To characterize the spatial distribution of LC cases across the Haifa District and Northern District and evaluate whether observed geographic patterns are explained by established confounders — particularly smoking prevalence and population size
 
-2) to describe the molecular and histopathological profile of the cohort and examine how biomarker distributions align with internationally reported data
+2. To describe the molecular and histopathological profile of the cohort and examine how biomarker distributions align with internationally reported data
 
 Methods
-=======
+-------
 
 ```{r}
 #| label: setup
-#| echo: false
 
-library(readxl)
 library(dplyr)
 library(ggplot2)
-library(knitr)
 library(kableExtra)
+library(knitr)
+library(leaflet)
+library(patchwork)
+library(readxl)
+library(spdep)
+library(tidyr)
 ```
 
 The dataset comprised 94 anonymized LC cases extracted from the Ofek platform. After loading, variables were recoded as factors with descriptive labels to facilitate analysis and visualization. All analyses were performed in R programming language. The report was authored in Quarto to ensure full reproducibility.
@@ -61,7 +61,7 @@ its analytical use rather than by its storage type.
 
 ```{r}
 #| label: tbl-dictionary
-#| tbl-cap: "Data dictionary: variables included in the dataset."
+#| tbl-cap: "Data dictionary: variables included in the dataset"
 
 dict <- tibble::tribble(
   ~Variable,  ~Type,  ~Description,
@@ -102,10 +102,11 @@ dict %>%
 
 
 Data analysis
-=============
+-------------
 
 ```{r}
 #| label: data-loading
+#| output: false
 
 df <- read_excel("data/CarmelMC_LungCancer.xlsx")
 
@@ -114,6 +115,7 @@ glimpse(df)
 
 ```{r}
 #| label: preprocessing
+#| output: false
 
 df <- df |>
   mutate(
@@ -134,10 +136,11 @@ df <- df |>
 glimpse(df)
 ```
 
-Cohort demographics
--------------------
+### Cohort demographics
 
-The study cohort comprised 94 LC patients with a median age of 72 years (range: 42–91). The sex distribution was male-predominant (55.3% males, 44.7% females). Smoking status was nearly balanced: 51.1% non-smokers and 48.9% smokers. Geographically, 39.4% of patients resided in the Haifa District and 60.6% in the Northern District. The ethnic composition was predominantly Jewish (68.1%), followed by Arab (25.5%), Druze (5.3%), and Bedouin (1.1%). Full demographic characteristics are presented in *@tbl-demographics* and *@fig-demographics*.
+The study cohort comprised 94 LC patients with a median age of 72 years (range: 42–91). The sex distribution was male-predominant (55.3% males, 44.7% females). Smoking status was nearly balanced: 51.1% non-smokers and 48.9% smokers. Geographically, 39.4% of patients resided in the Haifa District and 60.6% in the Northern District. The ethnic composition was predominantly Jewish (68.1%), followed by Arab (25.5%), Druze (5.3%), and Bedouin (1.1%). 
+
+Full demographic characteristics are presented in *@tbl-demographics* and *@fig-demographics*.
 
 ```{r}
 #| label: tbl-demographics
@@ -206,9 +209,6 @@ kable(tbl_demo,
 #| fig-width: 8
 #| fig-height: 6
 
-library(ggplot2)
-library(patchwork)
-
 # Individual plots
 p_sex <- ggplot(df, aes(x = sex, fill = sex)) +
   geom_bar() +
@@ -237,8 +237,7 @@ p_ethnic <- ggplot(df, aes(x = ethnic, fill = ethnic)) +
 (p_sex | p_smoking) / (p_district | p_ethnic)
 ```
 
-Histological subtypes, biomarker distribution, and TMB
-------------------------------------------------------
+### Histological subtypes, biomarkers, and TMB
 
 ACA was the predominant histological subtype, accounting for 67.0% of cases, followed by SCC (26.6%), MucACA (4.3%), and NEC (2.1%). No carcinoid tumors (NETs) were identified in this cohort.
 
@@ -250,11 +249,9 @@ Biomarker distribution and mean TMB by histological subtype are shown in *@fig-b
 
 ```{r}
 #| label: fig-biomarkers
-#| fig-cap: "Histological diagnoses with biomarker distribution and mean tumor mutational burden"
+#| fig-cap: "Histopathological diagnoses with biomarker distribution and mean TMB"
 #| fig-width: 10
 #| fig-height: 6
-
-library(tidyr)
 
 # Biomarkers included
 biomarkers <- c("pdl1","egfr","kras","braf","met",
@@ -298,20 +295,14 @@ p_tmb <- ggplot(tmb_mean, aes(x = dx, y = mean_tmb, fill = dx)) +
 p_bm / p_tmb
 ```
 
-Geographic distribution of LC cases
------------------------------------
+### Geographic distribution of LC cases
 
-Cases were distributed across more than 40 localities within the Haifa District
-and Northern District. The largest concentration resided in the city of Haifa
+Cases were distributed across more than 40 localities within the Haifa District and Northern District. The largest concentration resided in the city of Haifa
 (18.1% of the cohort), followed by Acre (6.4%), Kiryat Ata (6.4%), and Nazareth (4.3%). The remaining cases were dispersed across smaller towns and villages, each contributing ≤3.2% of the total (*@fig-locality-bar*).
-
-Histopathological composition varied between localities. Haifa cases were predominantly ACA (64.7%) with a substantial SCC fraction (35.3%). Acre cases split evenly between ACA and SCC, while Nazareth showed a more mixed profile including ACA, SCC, and NEC.
-
-The bubble map (*@fig-bubble-map*) provides a geographic overview of absolute case counts. The city of Haifa emerges as the dominant cluster, with additional concentrations along the coastal plain (Acre, Nahariyya, Kiryat Ata) and in inland centers (Nazareth, Nof HaGalil, Afula). However, absolute case counts reflect both underlying disease risk and population size — larger cities generate more cases simply because more people live there. Population adjustment, applied in the subsequent spatial analyses, is therefore essential before interpreting geographic patterns as evidence of differential risk.
 
 ```{r}
 #| label: fig-locality-bar
-#| fig-cap: "Geographic distribution of LC patients by locality of residence. 'Other' bars represent localities with a single case each, grouped by histological subtype."
+#| fig-cap: "Geographic distribution of LC patients by locality of residence. 'Other' bars represent localities with a single case each, grouped by histopathological diagnosis."
 #| fig-width: 9
 #| fig-height: 10
 
@@ -360,11 +351,13 @@ ggplot(df_plot, aes(x = locality, y = n, fill = dx)) +
   theme(axis.text.y = element_text(size = 9))
 ```
 
+Histopathological composition varied between localities. Haifa cases were predominantly ACA (64.7%) with a substantial SCC fraction (35.3%). Acre cases split evenly between ACA and SCC, while Nazareth showed a more mixed profile including ACA, SCC, and NEC.
+
+The bubble map (*@fig-bubble-map*) provides a geographic overview of absolute case counts. The city of Haifa emerges as the dominant cluster, with additional concentrations along the coastal plain (Acre, Nahariyya, Kiryat Ata) and in inland centers (Nazareth, Nof HaGalil, Afula). However, absolute case counts reflect both underlying disease risk and population size — larger cities generate more cases simply because more people live there. Population adjustment, applied in the subsequent spatial analyses, is therefore essential before interpreting geographic patterns as evidence of differential risk.
+
 ```{r}
 #| label: fig-bubble-map
 #| fig-cap: "Interactive bubble map of LC cases across Northern Israel by locality of residence. Bubble size corresponds to number of cases. Click to interact."
-
-library(leaflet)
 
 # Aggregating cases by locality
 locality_counts <- df |>
@@ -398,28 +391,17 @@ leaflet(locality_counts) |>
   )
 ```
 
-Spatial analysis
-----------------
+### Spatial analysis
 
-### Kernel density estimation (KDE)
+#### Kernel density estimation (KDE)
 
-To explore geographic heterogeneity beyond absolute counts, KDE was applied in two forms: unadjusted (weighted by absolute case counts) and population-adjusted (weighted by cases per  100,000 locality population). The two maps are shown in *@fig-kde-maps*.
+To explore geographic heterogeneity beyond absolute counts, KDE was applied in two forms: unadjusted (weighted by absolute case counts) and population-adjusted (weighted by cases per 100,000 locality population). 
 
-The unadjusted map confirms Haifa's dominance — a pattern driven largely by its large population rather than elevated relative risk. After population adjustment, Haifa's prominence diminishes substantially. Instead, small inland localities emerge with elevated relative intensity, most notably Elkosh (1 case in a population of 267, yielding 374.5 per 100,000). The adjusted map thus provides a more valid basis for assessing spatial risk gradients than raw case counts alone.
-
-### Global spatial autocorrelation
-
-Global spatial autocorrelation was assessed using Moran's I with a k = 4 nearest-neighbor weights matrix. The result was Moran's I = −0.008 (permutation test p = 0.373), indicating no statistically significant global clustering of LC incidence across localities (*@fig-moran*). This finding is consistent with the overall conclusion that apparent geographic gradients in crude case maps are attributable to population size and confounding rather than true spatial clustering of risk.
-
-### Local indicators of spatial association
-
-LISA analysis identified three statistically significant localities (p < 0.05), all classified as Low–High outliers: Beitegen, Fassuta, and Kiryat Shmona — localities with relatively low incidence surrounded by higher-incidence neighbors (*@fig-lisa*, *@tbl-lisa*). No High–High hotspots or High–Low outliers reached statistical significance, corroborating the global Moran's I result.
+The unadjusted map (*@fig-kde-map-unadj*) confirms Haifa's dominance — a pattern driven largely by its large population rather than elevated relative risk.
 
 ```{r}
-#| label: fig-kde-maps
-#| fig-cap: "Kernel density heatmaps of LC cases across Northern Israel. A: Unadjusted (absolute counts). B: Population-adjusted (relative risk intensity). Bubble size and opacity reflect case density. Click to interact."
-
-library(leaflet)
+#| label: kde-setup
+#| output: false
 
 locality_data <- df |>
   group_by(locality, latitude, longitude, loc_popul) |>
@@ -433,6 +415,11 @@ scale_radius <- function(x, min_r = 10, max_r = 60) {
 scale_opacity <- function(x, min_o = 0.2, max_o = 0.7) {
   min_o + (x - min(x)) / (max(x) - min(x)) * (max_o - min_o)
 }
+```
+
+```{r}
+#| label: fig-kde-map-unadj
+#| fig-cap: "Unadjusted (absolute counts) kernel density heatmap of LC cases across Northern Israel. Bubble size and opacity reflect case density. Click to interact."
 
 # Unadjusted map
 map_unadj <- leaflet(locality_data) |>
@@ -449,6 +436,28 @@ map_unadj <- leaflet(locality_data) |>
   ) |>
   addControl("<b>Unadjusted</b><br>(absolute counts)",
              position = "topright")
+
+map_unadj
+```
+
+After population adjustment (*@fig-kde-map-adj*), Haifa's prominence diminishes substantially. Instead, small inland localities emerge with elevated relative intensity, most notably Elkosh (1 case in a population of 267, yielding 374.5 per 100,000). The adjusted map thus provides a more valid basis for assessing spatial risk gradients than raw case counts alone.
+
+```{r}
+#| label: fig-kde-map-adj
+#| fig-cap: "Population-adjusted (relative risk intensity) kernel density heatmap of LC cases across Northern Israel. Bubble size and opacity reflect case density. Click to interact."
+
+locality_data <- df |>
+  group_by(locality, latitude, longitude, loc_popul) |>
+  summarise(n = n(), .groups = "drop") |>
+  mutate(adj_weight = n / loc_popul * 100000)
+
+# Scaling functions
+scale_radius <- function(x, min_r = 10, max_r = 60) {
+  min_r + (x - min(x)) / (max(x) - min(x)) * (max_r - min_r)
+}
+scale_opacity <- function(x, min_o = 0.2, max_o = 0.7) {
+  min_o + (x - min(x)) / (max(x) - min(x)) * (max_o - min_o)
+}
 
 # Population-adjusted map
 map_adj <- leaflet(locality_data) |>
@@ -467,18 +476,18 @@ map_adj <- leaflet(locality_data) |>
   addControl("<b>Population-adjusted</b><br>(relative risk intensity)",
              position = "topright")
 
-map_unadj
 map_adj
 ```
+
+#### Global spatial autocorrelation
+
+Global spatial autocorrelation was assessed using Moran's I with a k = 4 nearest-neighbor weights matrix. The result was Moran's I = −0.008 (permutation test p = 0.373), indicating no statistically significant global clustering of LC incidence across localities (*@fig-moran*). This finding is consistent with the overall conclusion that apparent geographic gradients in crude case maps are attributable to population size and confounding rather than true spatial clustering of risk.
 
 ```{r}
 #| label: fig-moran
 #| fig-cap: "Moran scatterplot of LC incidence across Northern Israel. Each point represents a locality. Positive spatial autocorrelation is indicated by points clustering in the upper-right (high–high) and lower-left (low–low) quadrants."
 #| warning: false
 #| message: false
-
-library (ggplot2)
-library(spdep)
 
 # Aggregating by locality
 loc_data <- df %>%
@@ -546,14 +555,15 @@ ggplot(moran_df, aes(x = inc_std, y = sp_lag, colour = quadrant)) +
   theme(legend.position = "bottom")
 ```
 
+#### Local indicators of spatial association
+
+LISA analysis identified three statistically significant Low–High outliers (p < 0.05): Beitegen, Fassuta, and Kiryat Shmona — localities with relatively low incidence surrounded by higher-incidence neighbors (*@fig-lisa*, *@tbl-lisa*). No High–High hotspots or High–Low outliers reached statistical significance. This absence of significant local clustering corroborates the global Moran's I result (I = −0.008, p = 0.373) and is consistent with the conclusion that apparent geographic gradients in crude case maps are attributable to population size distribution and smoking prevalence rather than true spatial clustering of risk.
+
 ```{r}
 #| label: fig-lisa
 #| fig-cap: "Local Moran's I (LISA) analysis of LC incidence across Northern Israel. Localities are classified by cluster type: hotspots (High–High), coldspots (Low–Low), high–low outliers, and low–high outliers. Only localities with p < 0.05 are highlighted; non-significant localities are shown in grey."
 #| warning: false
 #| message: false
-
-library(spdep)
-library(leaflet)
 
 # Local Moran's I
 set.seed(42)
@@ -600,8 +610,6 @@ leaflet(loc_data) %>%
   )
 ```
 
-LISA analysis identified three statistically significant Low–High outliers (p < 0.05): Beitegen, Fassuta, and Kiryat Shmona — localities with relatively low incidence surrounded by higher-incidence neighbors (*@tbl-lisa*). No High–High hotspots or High–Low outliers reached statistical significance. This absence of significant local clustering corroborates the global Moran's I result (I = −0.008, p = 0.373) and is consistent with the conclusion that apparent geographic gradients in crude case maps are attributable to population size distribution and smoking prevalence rather than true spatial clustering of risk.
-
 ```{r}
 #| label: tbl-lisa
 #| tbl-cap: "Localities classified as statistically significant LISA clusters (p < 0.05). All three identified localities are Low–High outliers — low incidence surrounded by higher-incidence neighbors."
@@ -643,19 +651,13 @@ lisa_sig %>%
                 full_width = FALSE)
 ```
 
-### Smoking as a confounder
+#### Smoking as a confounder
 
 To evaluate whether the observed spatial patterns could be explained by smoking prevalence, the population-adjusted distribution of smoker cases was mapped (*@fig-smoking-kde*) and stratified Moran's I analyses were performed. Among smokers only, Moran's I was 0.026 (p = 0.725); among non-smokers only, Moran's I was −0.032 (p = 0.626) — neither significant. The statistically significant clustering observed in the combined unadjusted dataset thus disappeared once smoking status was accounted for, identifying smoking as a true spatial confounder rather than an independent geographic risk factor.
 
-### Ethnicity as a potential determinant
-
-The cohort comprised four ethnic groups: Jewish (68.1%), Arab (25.5%), Druze (5.3%), and Bedouin (1.1%). Smoking prevalence among Jewish and Arab cases was similar at 53.1% and 50.0%, respectively; no smokers were recorded among Druze or Bedouin cases (*@tbl-ethnicity-smoking*). Fisher's exact test comparing smoking prevalence between Jewish and Arab cases yielded p = 0.815, indicating no statistically significant difference. Druze and Bedouin cases were excluded from formal testing due to zero observed smokers in both groups.
-
-These findings indicate that ethnicity does not independently explain the geographic distribution of LC cases in this cohort. Its role is more likely indirect, mediated through residential settlement patterns and their overlap with smoking prevalence.
-
 ```{r}
 #| label: fig-smoking-kde
-#| fig-cap: "Population-adjusted distribution of smoker cases across Northern Israel. Circle size and opacity reflect the proportion of smokers per locality population (per 100,000). Compare with Figure 3.2.5b to assess geographic overlap between smoking prevalence and LC incidence."
+#| fig-cap: "Population-adjusted distribution of smoker cases across Northern Israel. Circle size and opacity reflect the proportion of smokers per locality population (per 100,000)."
 #| warning: false
 #| message: false
 
@@ -702,13 +704,17 @@ leaflet(smoker_data) %>%
   )
 ```
 
-The population-adjusted distribution of smoker cases shows partial geographic overlap with LC incidence (*@fig-kde-maps*), particularly in the coastal corridor and central inland zone. However, the correspondence is imperfect — consistent with the Moran's I stratified analysis, which showed no significant spatial autocorrelation among smokers or non-smokers when examined separately. Together, these findings suggest that smoking shapes the overall geographic distribution of LC cases but does not fully explain it at the local level.
+The population-adjusted distribution of smoker cases shows partial geographic overlap with LC incidence, particularly in the coastal corridor and central inland zone. However, the correspondence is imperfect — consistent with the Moran's I stratified analysis, which showed no significant spatial autocorrelation among smokers or non-smokers when examined separately.
+
+These findings suggest that smoking shapes the overall geographic distribution of LC cases but does not fully explain it at the local level.
+
+#### Ethnicity as a potential determinant
+
+The cohort comprised four ethnic groups: Jewish (68.1%), Arab (25.5%), Druze (5.3%), and Bedouin (1.1%). Smoking prevalence among Jewish and Arab cases was similar at 53.1% and 50.0%, respectively; no smokers were recorded among Druze or Bedouin cases (*@tbl-ethnicity-smoking*). 
 
 ```{r}
 #| label: tbl-ethnicity-smoking
-#| tbl-cap: "LC cases and smoking prevalence by ethnic group. Chi-square test of independence was applied to compare smoking prevalence between Jewish and Arab cases."
-
-library(kableExtra)
+#| tbl-cap: "LC cases and smoking prevalence by ethnic group"
 
 ethn_smoke <- df %>%
   group_by(ethnic) %>%
@@ -737,9 +743,10 @@ ethn_smoke %>%
 ```
 
 ```{r}
-#| label: chi-ethnicity-smoking
+#| label: fisher-test
+#| output: false
 
-# Fisher's exact test: Jewish vs Arab only (Druze/Bedouin excluded — zero smokers)
+# Fisher's exact test: Jewish vs Arab only
 ct <- df %>%
   filter(ethnic %in% c("Jewish", "Arab")) %>%
   mutate(smoking = factor(smoking)) %>%
@@ -752,41 +759,41 @@ fisher_result <- fisher.test(ct)
 print(fisher_result)
 ```
 
-Fisher's exact test comparing smoking prevalence between Jewish and Arab cases yielded p = 0.815, indicating no statistically significant difference. Druze and Bedouin cases were excluded from formal testing due to zero observed smokers in both groups — a finding that may reflect cultural norms, small subgroup size, or referral patterns rather than true population prevalence. Together, these results suggest that ethnicity does not independently explain the geographic distribution of LC cases in this cohort; its role is more likely indirect, mediated through residential settlement patterns and their overlap with smoking prevalence.
+Fisher's exact test comparing smoking prevalence between Jewish and Arab cases yielded p = 0.8151, indicating no statistically significant difference. Druze and Bedouin cases were excluded from formal testing due to zero observed smokers in both groups — a finding that may reflect cultural norms, small subgroup size, or referral patterns rather than true population prevalence.
+
+The results suggest that ethnicity does not independently explain the geographic distribution of LC cases in this cohort; its role is more likely indirect, mediated through residential settlement patterns and their overlap with smoking prevalence.
 
 Discussion
-==========
+----------
 
-This analysis of 94 LC cases from the Lady Davis Carmel Medical Center demonstrates both the potential and the inherent limitations of hospital-based spatial epidemiology. The molecular and histopathological findings align closely with internationally reported patterns: ACA was
+This analysis of 94 LC cases from the Lady Davis Carmel Medical Center demonstrates both the potential and the inherent limitations of hospital-based spatial epidemiology. 
+
+The molecular and histopathological findings align closely with internationally reported patterns: ACA was
 the dominant subtype, EGFR and KRAS were the most frequent actionable alterations, and PD-L1 positivity was concentrated in ACAs — consistent with current global literature on non-small-cell LC molecular profiling.
 
 The spatial analyses tell a methodologically instructive story. Crude case mapping initially suggested geographic clustering centered on the city of Haifa and coastal urban centers. However, successive analytical steps overturned this impression: population adjustment redistributed apparent risk toward smaller inland localities; global Moran's I confirmed the
 absence of statistically significant spatial autocorrelation; and LISA identified only three Low–High outliers, with no true hotspots. Most critically, stratified Moran's I analyses demonstrated that the modest clustering signal in the unadjusted data dissolved entirely once smoking status was accounted for — identifying smoking as the primary spatial confounder.
 
-These findings underscore a fundamental principle of spatial epidemiology: apparent geographic clusters of disease cannot be interpreted at face value. Rigorous adjustment for population denominators and behavioral confounders is essential before attributing
-geographic gradients to environmental or other structural causes.
+These findings underscore a fundamental principle of spatial epidemiology: apparent geographic clusters of disease cannot be interpreted at face value. Rigorous adjustment for population denominators and behavioral confounders is essential before attributing geographic gradients to environmental or other structural causes.
 
-## Limitations
+Several **limitations** constrain the interpretation of these findings:
 
-Several limitations constrain the interpretation of these findings.
+1. The dataset is hospital-based and subject to referral bias — patients residing closer to Carmel Medical Center are overrepresented, which may inflate apparent case density in the Haifa metropolitan area. 
 
-First, the dataset is hospital-based and subject to referral bias — patients residing closer to Carmel Medical Center are overrepresented, which may inflate apparent case density in the Haifa metropolitan area. 
+2. The sample size of 94 cases limits statistical power for detecting subtle spatial patterns or subgroup differences. 
 
-Second, the sample size of 94 cases limits statistical power for detecting subtle spatial patterns or subgroup differences. 
+3. Smoking history was recorded as a binary variable, precluding dose-response analysis.
 
-Third, smoking history was recorded as a binary variable, precluding dose-response analysis.
+4. Ethnic origin was approximated from patient names and residential locality rather than confirmed by self-report, introducing potential misclassification.
 
-Fourth, ethnic origin was approximated from patient names and residential locality rather than confirmed by self-report, introducing potential misclassification.
+5. Individual-level environmental exposure data were not available, preventing a formal assessment of gene-environment interactions — the original motivation for this study design.
 
-Finally, individual-level environmental exposure data were not available, preventing a formal assessment of gene-environment interactions — the original motivation for this study design.
-
-Future investigations combining population-based cancer registry data, individual-level exposure measurements, and larger molecularly characterized cohorts would be needed to address these limitations and draw causal conclusions.
+Future investigations combining population-based cancer registry data, individual-level exposure measurements, and larger molecularly characterized cohorts would be needed to address these limitations and draw causal inferences.
 
 Conclusions
-===========
+-----------
 
-This analysis demonstrates that apparent geographic clustering of LC cases in Northern Israel, when subjected to rigorous spatial analysis, is explained by the uneven distribution of smoking prevalence and population size across localities rather than by independent
-environmental or structural risk factors. Global Moran's I showed no significant spatial autocorrelation (I = −0.008, p = 0.373), and LISA identified only three Low–High outliers — no true hotspots. Stratified analysis confirmed smoking as the primary spatial confounder.
+This analysis demonstrates that apparent geographic clustering of LC cases in Northern Israel, when subjected to rigorous spatial analysis, is explained by the uneven distribution of smoking prevalence and population size across localities rather than by independent environmental or structural risk factors. Global Moran's I showed no significant spatial autocorrelation (I = −0.008, p = 0.373), and LISA identified only three Low–High outliers — no true hotspots. Stratified analysis confirmed smoking as the primary spatial confounder.
 
 At the molecular level, the cohort mirrors internationally reported patterns: ACA was the dominant histological subtype, EGFR and KRAS were the most frequently altered actionable drivers, and PD-L1 positivity was concentrated in ACAs. These findings support the continued integration of comprehensive molecular profiling into routine LC diagnostics.
 

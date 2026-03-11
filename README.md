@@ -98,7 +98,3 @@ quarto::quarto_render("EnvEpi_LungCancer.qmd")
 ## Methodological Note
 
 The analysis demonstrates a key principle of spatial epidemiology: apparent geographic clusters of disease cannot be interpreted at face value. Sequential adjustment for population denominators and behavioral confounders (smoking) overturned an initially significant clustering signal, illustrating how rigorous analysis can prevent misleading conclusions from crude case maps.
-
----
-
-*Course: Environmental Epidemiology | Instructor: Jonathan Dubnov, MD, MPH | School of Public Health, University of Haifa*
